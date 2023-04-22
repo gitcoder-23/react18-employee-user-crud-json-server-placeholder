@@ -91,20 +91,6 @@
       "email": "niraj@yahoo.com",
       "phone": "9875641258",
       "active": true,
-      "id": 7
-    },
-    {
-      "employeename": "Niraj Modi",
-      "email": "niraj@yahoo.com",
-      "phone": "9875641258",
-      "active": false,
-      "id": 8
-    },
-    {
-      "employeename": "Niraj Modi",
-      "email": "niraj@yahoo.com",
-      "phone": "9875641258",
-      "active": true,
       "id": 9
     },
     {
@@ -113,20 +99,6 @@
       "phone": "8894561235",
       "active": true,
       "id": "15dd9ba3-af9b-4f24-ae7b-097f194fbdb8"
-    },
-    {
-      "id": "b729319f-880b-4d66-98c7-d20b2227791a",
-      "employeename": "dfd",
-      "email": "test@test.com",
-      "phone": "35635455245",
-      "active": true
-    },
-    {
-      "employeename": "sdsadasd",
-      "email": "sadasd@test.com",
-      "phone": "432234423423",
-      "active": false,
-      "id": "6e877fc0-3bc5-4775-aff6-38ad14c6a895"
     },
     {
       "employeename": "Krishna",

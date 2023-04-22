@@ -68,6 +68,18 @@ const EmployeeList = () => {
 
   const loadDelete = (dData) => {
     console.log('dData-->', dData);
+    if (window.confirm('Do you want?')) {
+      axios
+        .delete(`${rootApi}/employees/${dData.id}`)
+        .then((dData) => {
+          console.log(dData);
+          getAllEmployees();
+        })
+        .catch((err) => {
+          console.log(err);
+          getAllEmployees();
+        });
+    }
   };
 
   return (
