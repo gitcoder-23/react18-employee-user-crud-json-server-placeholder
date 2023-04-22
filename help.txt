@@ -1,0 +1,9 @@
+you-tut
+https://youtu.be/i3J8gyARN-Y
+13:04
+
+use Redux Vanilla
+https://youtu.be/MEtQTB_xyMc
+
+// Deploy App To GitHub
+https://dev.to/nikita_guliaev/deploying-create-react-app-with-json-server-as-backend-to-github-3pp9
