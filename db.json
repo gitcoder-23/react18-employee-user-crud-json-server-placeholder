@@ -94,13 +94,6 @@
       "id": 9
     },
     {
-      "employeename": "Test1",
-      "email": "test1@test.com",
-      "phone": "8894561235",
-      "active": true,
-      "id": "15dd9ba3-af9b-4f24-ae7b-097f194fbdb8"
-    },
-    {
       "employeename": "Krishna",
       "email": "krishna1@test.com",
       "phone": "9994561258",

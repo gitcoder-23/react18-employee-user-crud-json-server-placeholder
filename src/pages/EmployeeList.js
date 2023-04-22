@@ -6,7 +6,7 @@ import Loader from '../components/Loader';
 
 const EmployeeList = () => {
   const navigate = useNavigate();
-  const [employeeData, setEmployeeData] = useState([]);
+  const [employeeData, setEmployeeData] = useState([] || null);
   const [isLoading, setIsLoading] = useState(true);
   const [mesasge, setMessage] = useState('');
 
@@ -80,6 +80,17 @@ const EmployeeList = () => {
           getAllEmployees();
         });
     }
+
+    // fetch(`${rootApi}/employees/` + dData.id, {
+    //   method: 'DELETE',
+    // })
+    //   .then((res) => {
+    //     alert('Removed successfully.');
+    //     window.location.reload();
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.message);
+    //   });
   };
 
   return (
