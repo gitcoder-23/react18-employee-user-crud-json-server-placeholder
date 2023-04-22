@@ -2,7 +2,7 @@
   "employees": [
     {
       "id": 1,
-      "name": "Clementine Bauch",
+      "employeename": "Clementine Bauch",
       "username": "Samantha",
       "email": "Nathan@yesenia.net",
       "address": {
@@ -18,14 +18,14 @@
       "phone": "1-463-123-4447",
       "website": "ramiro.info",
       "company": {
-        "name": "Romaguera-Jacobson",
+        "employeename": "Romaguera-Jacobson",
         "catchPhrase": "Face to face bifurcated interface",
         "bs": "e-enable strategic applications"
       }
     },
     {
       "id": 2,
-      "name": "Patricia Lebsack",
+      "employeename": "Patricia Lebsack",
       "username": "Karianne",
       "email": "Julianne.OConner@kory.org",
       "address": {
@@ -41,14 +41,14 @@
       "phone": "493-170-9623 x156",
       "website": "kale.biz",
       "company": {
-        "name": "Robel-Corkery",
+        "employeename": "Robel-Corkery",
         "catchPhrase": "Multi-tiered zero tolerance productivity",
         "bs": "transition cutting-edge web services"
       }
     },
     {
       "id": 3,
-      "name": "Chelsey Dietrich",
+      "employeename": "Chelsey Dietrich",
       "username": "Kamren",
       "email": "Lucio_Hettinger@annie.ca",
       "address": {
@@ -64,14 +64,14 @@
       "phone": "(254)954-1289",
       "website": "demarco.info",
       "company": {
-        "name": "Keebler LLC",
+        "employeename": "Keebler LLC",
         "catchPhrase": "User-centric fault-tolerant solution",
         "bs": "revolutionize end-to-end systems"
       }
     },
     {
       "id": 4,
-      "name": "Mrs. Dennis Schulist",
+      "employeename": "Mrs. Dennis Schulist",
       "username": "Leopoldo_Corkery",
       "email": "Karley_Dach@jasper.info",
       "address": {
@@ -87,14 +87,14 @@
       "phone": "1-477-935-8478 x6430",
       "website": "ola.org",
       "company": {
-        "name": "Considine-Lockman",
+        "employeename": "Considine-Lockman",
         "catchPhrase": "Synchronised bottom-line interface",
         "bs": "e-enable innovative applications"
       }
     },
     {
       "id": 5,
-      "name": "Kurtis Weissnat",
+      "employeename": "Kurtis Weissnat",
       "username": "Elwyn.Skiles",
       "email": "Telly.Hoeger@billy.biz",
       "address": {
@@ -110,28 +110,77 @@
       "phone": "210.067.6132",
       "website": "elvis.io",
       "company": {
-        "name": "Johns Group",
+        "employeename": "Johns Group",
         "catchPhrase": "Configurable multimedia task-force",
         "bs": "generate enterprise e-tailers"
       }
     },
     {
       "id": 6,
-      "name": "Michel Shene",
+      "employeename": "Michel Shene",
       "email": "mike@codename.com",
       "phone": "7894-5284-12"
     },
     {
       "id": "ac8cd21a-cf33-4f7c-a7af-7b791b8c8f1d",
-      "name": "Ram Gopal Verma",
+      "employeename": "Ram Gopal Verma",
       "email": "ramverma@yahoo.com",
       "phone": "7894568574"
     },
     {
       "id": "1b7625c1-2fd4-4faa-9cc0-795a68c20554",
-      "name": "Ram Mohan Ray",
+      "employeename": "Ram Mohan Ray",
       "email": "rmohan@gmail.com",
       "phone": "98945685741"
+    },
+    {
+      "employeename": "Niraj Modi",
+      "email": "niraj@yahoo.com",
+      "phone": "9875641258",
+      "active": true,
+      "id": 7
+    },
+    {
+      "employeename": "Niraj Modi",
+      "email": "niraj@yahoo.com",
+      "phone": "9875641258",
+      "active": true,
+      "id": 8
+    },
+    {
+      "employeename": "Niraj Modi",
+      "email": "niraj@yahoo.com",
+      "phone": "9875641258",
+      "active": true,
+      "id": 9
+    },
+    {
+      "id": "15dd9ba3-af9b-4f24-ae7b-097f194fbdb8",
+      "employeename": "Test",
+      "email": "test@test.com",
+      "phone": "7894561235",
+      "active": false
+    },
+    {
+      "id": "b729319f-880b-4d66-98c7-d20b2227791a",
+      "employeename": "dfd",
+      "email": "test@test.com",
+      "phone": "35635455245",
+      "active": true
+    },
+    {
+      "id": "6e877fc0-3bc5-4775-aff6-38ad14c6a895",
+      "employeename": "rgtrh",
+      "email": "test@test.com",
+      "phone": "574676435454",
+      "active": true
+    },
+    {
+      "id": "01c99024-8a8f-4af4-975e-e47d5d91f896",
+      "employeename": "Khan Baba",
+      "email": "testkhan@test.com",
+      "phone": "7894561258",
+      "active": true
     }
   ]
 }

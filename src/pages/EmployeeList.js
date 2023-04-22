@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { rootApi } from '../config';
+import { Link } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 const EmployeeList = () => {
   const [employeeData, setEmployeeData] = useState([]);
@@ -54,12 +56,15 @@ const EmployeeList = () => {
     <div className="container">
       <div className="card">
         <div className="card-title">
-          <h1>Employee List</h1>
+          <h1>
+            Employee List{' '}
+            <Link to={'/employee/create'} className="btn btn-success">
+              Add New (+)
+            </Link>
+          </h1>
           <div className="card-body">
             {isLoading ? (
-              <div class="spinner-border text-info" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
+              <Loader />
             ) : mesasge ? (
               <>
                 <h1>{mesasge}</h1>
@@ -81,7 +86,7 @@ const EmployeeList = () => {
                     <tbody key={indx}>
                       <tr>
                         <td>{indx + 1}</td>
-                        <td>{eData.name}</td>
+                        <td>{eData.employeename}</td>
                         <td>{eData.email}</td>
                         <td>{eData.phone}</td>
                         <td>
