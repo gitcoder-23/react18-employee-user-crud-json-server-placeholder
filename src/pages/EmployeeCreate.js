@@ -9,6 +9,7 @@ const EmployeeCreate = () => {
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
   const [active, setActivechange] = useState(false);
+  const [validation, setValidation] = useState(false);
   const [employeeForm, setEmployeeForm] = useState({
     id: uuidv4(),
     employeename: '',
@@ -112,11 +113,21 @@ const EmployeeCreate = () => {
                         <input
                           id="employeename"
                           name="employeename"
+                          required
                           value={employeeForm.employeename}
+                          onMouseDown={(e) => setValidation(true)}
                           onChange={(e) => onFieldChange(e)}
                           className="form-control"
                           placeholder="Type name here"
                         />
+                        {employeeForm.employeename.length === 0 &&
+                          validation && (
+                            <div style={{ textAlign: 'left' }}>
+                              <span className="text-danger">
+                                Enter employee name
+                              </span>
+                            </div>
+                          )}
                       </div>
                     </div>
                     <div className="col-lg-12 mb-2">
@@ -127,11 +138,18 @@ const EmployeeCreate = () => {
                         <input
                           id="email"
                           name="email"
+                          required
                           value={employeeForm.email}
                           onChange={(e) => onFieldChange(e)}
+                          onMouseDown={(e) => setValidation(true)}
                           className="form-control"
                           placeholder="Type email here"
                         />
+                        {employeeForm.email.length === 0 && validation && (
+                          <div style={{ textAlign: 'left' }}>
+                            <span className="text-danger">Enter email</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="col-lg-12 mb-2">
@@ -142,11 +160,18 @@ const EmployeeCreate = () => {
                         <input
                           id="phone"
                           name="phone"
+                          required
                           value={employeeForm.phone}
                           onChange={(e) => onFieldChange(e)}
+                          onMouseDown={(e) => setValidation(true)}
                           className="form-control"
                           placeholder="Type phone here"
                         />
+                        {employeeForm.phone.length === 0 && validation && (
+                          <div style={{ textAlign: 'left' }}>
+                            <span className="text-danger">Enter email</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="col-lg-12 mb-2">
