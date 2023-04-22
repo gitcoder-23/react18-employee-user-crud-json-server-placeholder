@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { rootApi } from '../config';
+import { ToastContainer, toast } from 'react-toastify';
+import ToastMessage from '../components/ToastMessage';
 
 const EmployeeCreate = () => {
   const navigate = useNavigate();
@@ -36,6 +38,9 @@ const EmployeeCreate = () => {
     ) {
       setSuccess(false);
       setMessage('Please fill all the fields!');
+      toast.warn('Please fill all the fields!', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       setTimeout(() => {
         setMessage('');
       }, 1500);
@@ -56,6 +61,9 @@ const EmployeeCreate = () => {
           if (data.status === 201) {
             setSuccess(true);
             setMessage('Form submitted success!');
+            toast.success('Form submitted success!', {
+              position: toast.POSITION.TOP_RIGHT,
+            });
 
             setTimeout(() => {
               setEmployeeForm({
@@ -73,6 +81,10 @@ const EmployeeCreate = () => {
           } else {
             setSuccess(false);
             setMessage('Form submitted failed! Something error');
+
+            toast.success('Form submitted failed! Something error', {
+              position: toast.POSITION.TOP_RIGHT,
+            });
             setTimeout(() => {
               setMessage('');
             }, 1500);
@@ -95,6 +107,7 @@ const EmployeeCreate = () => {
 
   return (
     <div className="container">
+      <ToastMessage />
       <div className="row">
         <div className="offset-lg-3 col-lg-6">
           <div className="container">
