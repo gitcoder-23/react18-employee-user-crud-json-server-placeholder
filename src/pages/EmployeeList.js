@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { rootApi } from '../config';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
 
 const EmployeeList = () => {
+  const navigate = useNavigate();
   const [employeeData, setEmployeeData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [mesasge, setMessage] = useState('');
@@ -52,6 +53,23 @@ const EmployeeList = () => {
     return () => {};
   }, []);
 
+  const loadDetail = (vData) => {
+    console.log('vData->', vData.id);
+    navigate(`/employee/detail/${vData.id}`, {
+      state: { singleUser: vData },
+    });
+  };
+
+  const loadEdit = (eData) => {
+    navigate(`/employee/edit/${eData.id}`, {
+      state: { singleUser: eData },
+    });
+  };
+
+  const loadDelete = (dData) => {
+    console.log('dData-->', dData);
+  };
+
   return (
     <div className="container">
       <div className="card">
@@ -90,15 +108,27 @@ const EmployeeList = () => {
                         <td>{eData.email}</td>
                         <td>{eData.phone}</td>
                         <td>
-                          <button type="button" className="btn btn-info">
+                          <button
+                            onClick={() => loadDetail(eData)}
+                            type="button"
+                            className="btn btn-info"
+                          >
                             View
                           </button>{' '}
                           &nbsp;
-                          <button type="button" className="btn btn-warning">
+                          <button
+                            onClick={() => loadEdit(eData)}
+                            type="button"
+                            className="btn btn-warning"
+                          >
                             Edit
                           </button>{' '}
                           &nbsp;
-                          <button type="button" className="btn btn-danger">
+                          <button
+                            onClick={() => loadDelete(eData)}
+                            type="button"
+                            className="btn btn-danger"
+                          >
                             Delete
                           </button>
                         </td>
