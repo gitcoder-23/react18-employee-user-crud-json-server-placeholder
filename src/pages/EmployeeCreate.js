@@ -82,7 +82,7 @@ const EmployeeCreate = () => {
             setSuccess(false);
             setMessage('Form submitted failed! Something error');
 
-            toast.success('Form submitted failed! Something error', {
+            toast.error('Form submitted failed! Something error', {
               position: toast.POSITION.TOP_RIGHT,
             });
             setTimeout(() => {
@@ -90,7 +90,12 @@ const EmployeeCreate = () => {
             }, 1500);
           }
         })
-        .catch((err) => console.log('submit-err', err));
+        .catch((err) => {
+          console.log('submit-err', err);
+          toast.error(`${err.message}`, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        });
 
       // fetch("http://localhost:8000/employee",{
       //   method:"POST",

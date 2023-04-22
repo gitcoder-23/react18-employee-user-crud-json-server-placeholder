@@ -22,29 +22,6 @@
       "id": 3
     },
     {
-      "id": 4,
-      "employeename": "Mrs. Dennis Schulist",
-      "username": "Leopoldo_Corkery",
-      "email": "Karley_Dach@jasper.info",
-      "address": {
-        "street": "Norberto Crossing",
-        "suite": "Apt. 950",
-        "city": "South Christy",
-        "zipcode": "23505-1337",
-        "geo": {
-          "lat": "-71.4197",
-          "lng": "71.7478"
-        }
-      },
-      "phone": "1-477-935-8478 x6430",
-      "website": "ola.org",
-      "company": {
-        "employeename": "Considine-Lockman",
-        "catchPhrase": "Synchronised bottom-line interface",
-        "bs": "e-enable innovative applications"
-      }
-    },
-    {
       "id": 5,
       "employeename": "Kurtis Weissnat",
       "username": "Elwyn.Skiles",
@@ -92,13 +69,6 @@
       "phone": "9875641258",
       "active": true,
       "id": 9
-    },
-    {
-      "employeename": "Krishna",
-      "email": "krishna1@test.com",
-      "phone": "9994561258",
-      "active": false,
-      "id": "01c99024-8a8f-4af4-975e-e47d5d91f896"
     },
     {
       "id": "d28e6393-11c2-4149-bfad-f9cc26d26d7c",

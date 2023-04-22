@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { rootApi } from '../config';
 import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
+import ToastMessage from '../components/ToastMessage';
+import { toast } from 'react-toastify';
 
 const EmployeeList = () => {
   const navigate = useNavigate();
@@ -73,6 +75,9 @@ const EmployeeList = () => {
         .delete(`${rootApi}/employees/${dData.id}`)
         .then((dData) => {
           console.log(dData);
+          toast.error('Deleted success!', {
+            position: toast.POSITION.TOP_RIGHT,
+          });
           getAllEmployees();
         })
         .catch((err) => {
@@ -95,6 +100,7 @@ const EmployeeList = () => {
 
   return (
     <div className="container">
+      <ToastMessage />
       <div className="card">
         <div className="card-title">
           <h1>
