@@ -95,6 +95,7 @@ const EmployeeList = () => {
                     <td>Employee Name</td>
                     <td>Email</td>
                     <td>Phone</td>
+                    <td>Status</td>
                     <td colSpan={2}>Action</td>
                   </tr>
                 </thead>
@@ -107,6 +108,18 @@ const EmployeeList = () => {
                         <td>{eData.employeename}</td>
                         <td>{eData.email}</td>
                         <td>{eData.phone}</td>
+                        <td>
+                          <span
+                            style={{
+                              color: `${
+                                eData.active === false ? 'red' : 'green'
+                              }`,
+                            }}
+                          >
+                            {' '}
+                            {eData.active === false ? 'Inactive' : 'Active'}
+                          </span>
+                        </td>
                         <td>
                           <button
                             onClick={() => loadDetail(eData)}

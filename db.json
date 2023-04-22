@@ -1,73 +1,25 @@
 {
   "employees": [
     {
-      "id": 1,
       "employeename": "Clementine Bauch",
-      "username": "Samantha",
       "email": "Nathan@yesenia.net",
-      "address": {
-        "street": "Douglas Extension",
-        "suite": "Suite 847",
-        "city": "McKenziehaven",
-        "zipcode": "59590-4157",
-        "geo": {
-          "lat": "-68.6102",
-          "lng": "-47.0653"
-        }
-      },
       "phone": "1-463-123-4447",
-      "website": "ramiro.info",
-      "company": {
-        "employeename": "Romaguera-Jacobson",
-        "catchPhrase": "Face to face bifurcated interface",
-        "bs": "e-enable strategic applications"
-      }
+      "active": false,
+      "id": 1
     },
     {
-      "id": 2,
       "employeename": "Patricia Lebsack",
-      "username": "Karianne",
       "email": "Julianne.OConner@kory.org",
-      "address": {
-        "street": "Hoeger Mall",
-        "suite": "Apt. 692",
-        "city": "South Elvis",
-        "zipcode": "53919-4257",
-        "geo": {
-          "lat": "29.4572",
-          "lng": "-164.2990"
-        }
-      },
       "phone": "493-170-9623 x156",
-      "website": "kale.biz",
-      "company": {
-        "employeename": "Robel-Corkery",
-        "catchPhrase": "Multi-tiered zero tolerance productivity",
-        "bs": "transition cutting-edge web services"
-      }
+      "active": true,
+      "id": 2
     },
     {
-      "id": 3,
       "employeename": "Chelsey Dietrich",
-      "username": "Kamren",
       "email": "Lucio_Hettinger@annie.ca",
-      "address": {
-        "street": "Skiles Walks",
-        "suite": "Suite 351",
-        "city": "Roscoeview",
-        "zipcode": "33263",
-        "geo": {
-          "lat": "-31.8129",
-          "lng": "62.5342"
-        }
-      },
       "phone": "(254)954-1289",
-      "website": "demarco.info",
-      "company": {
-        "employeename": "Keebler LLC",
-        "catchPhrase": "User-centric fault-tolerant solution",
-        "bs": "revolutionize end-to-end systems"
-      }
+      "active": true,
+      "id": 3
     },
     {
       "id": 4,
@@ -116,10 +68,11 @@
       }
     },
     {
-      "id": 6,
       "employeename": "Michel Shene",
       "email": "mike@codename.com",
-      "phone": "7894-5284-12"
+      "phone": "7894-5284-12",
+      "active": false,
+      "id": 6
     },
     {
       "id": "ac8cd21a-cf33-4f7c-a7af-7b791b8c8f1d",
@@ -144,7 +97,7 @@
       "employeename": "Niraj Modi",
       "email": "niraj@yahoo.com",
       "phone": "9875641258",
-      "active": true,
+      "active": false,
       "id": 8
     },
     {
@@ -155,11 +108,11 @@
       "id": 9
     },
     {
-      "id": "15dd9ba3-af9b-4f24-ae7b-097f194fbdb8",
-      "employeename": "Test",
-      "email": "test@test.com",
-      "phone": "7894561235",
-      "active": false
+      "employeename": "Test1",
+      "email": "test1@test.com",
+      "phone": "8894561235",
+      "active": true,
+      "id": "15dd9ba3-af9b-4f24-ae7b-097f194fbdb8"
     },
     {
       "id": "b729319f-880b-4d66-98c7-d20b2227791a",
@@ -169,18 +122,18 @@
       "active": true
     },
     {
-      "id": "6e877fc0-3bc5-4775-aff6-38ad14c6a895",
-      "employeename": "rgtrh",
-      "email": "test@test.com",
-      "phone": "574676435454",
-      "active": true
+      "employeename": "sdsadasd",
+      "email": "sadasd@test.com",
+      "phone": "432234423423",
+      "active": false,
+      "id": "6e877fc0-3bc5-4775-aff6-38ad14c6a895"
     },
     {
-      "id": "01c99024-8a8f-4af4-975e-e47d5d91f896",
-      "employeename": "Khan Baba",
-      "email": "testkhan@test.com",
-      "phone": "7894561258",
-      "active": true
+      "employeename": "Krishna",
+      "email": "krishna1@test.com",
+      "phone": "9994561258",
+      "active": false,
+      "id": "01c99024-8a8f-4af4-975e-e47d5d91f896"
     }
   ]
 }
