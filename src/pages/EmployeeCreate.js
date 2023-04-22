@@ -78,6 +78,17 @@ const EmployeeCreate = () => {
           }
         })
         .catch((err) => console.log('submit-err', err));
+
+      // fetch("http://localhost:8000/employee",{
+      //   method:"POST",
+      //   headers:{"content-type":"application/json"},
+      //   body:JSON.stringify(empdata)
+      // }).then((res)=>{
+      //   alert('Saved successfully.')
+      //   navigate('/');
+      // }).catch((err)=>{
+      //   console.log(err.message)
+      // })
     }
   };
 
