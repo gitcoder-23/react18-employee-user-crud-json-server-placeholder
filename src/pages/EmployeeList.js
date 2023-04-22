@@ -81,9 +81,9 @@ const EmployeeList = () => {
                     <tbody key={indx}>
                       <tr>
                         <td>{indx + 1}</td>
-                        <td>Krishna</td>
-                        <td>Krishna@yahoo.com</td>
-                        <td>8888888888</td>
+                        <td>{eData.name}</td>
+                        <td>{eData.email}</td>
+                        <td>{eData.phone}</td>
                         <td>
                           <button type="button" className="btn btn-info">
                             View
