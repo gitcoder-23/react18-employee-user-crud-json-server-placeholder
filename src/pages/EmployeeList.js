@@ -98,6 +98,11 @@ const EmployeeList = () => {
     //   });
   };
 
+  // localStorage.setItem('countedNumber', JSON.stringify(number));
+
+  // const storeCountedNum = JSON.parse(localStorage.getItem('countedNumber'));
+  // console.log('storeCountedNum=>', storeCountedNum);
+
   return (
     <div className="container">
       <ToastMessage />
