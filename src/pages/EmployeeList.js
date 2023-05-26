@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
 import ToastMessage from '../components/ToastMessage';
 import { toast } from 'react-toastify';
+import Menu from '../components/Menu';
 
 const EmployeeList = () => {
   const navigate = useNavigate();
@@ -105,6 +106,7 @@ const EmployeeList = () => {
 
   return (
     <div className="container">
+      <Menu />
       <ToastMessage />
       <div className="card">
         <div className="card-title">
