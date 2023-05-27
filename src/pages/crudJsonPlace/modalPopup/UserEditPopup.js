@@ -15,14 +15,22 @@ const UserEditPopup = ({
 
   const [success, setSuccess] = useState(false);
   const [validation, setValidation] = useState(false);
-  const [editUserName, setEditUserName] = useState(editUserData?.name);
-  console.log('editUserName-->', editUserName, editUserData?.name);
+  const [oneUser, setOneUser] = useState({});
+
   const [editUsersForm, setEditUsersForm] = useState({
-    id: editUserData?.id || '',
-    name: editUserData?.name || '',
-    email: editUserData?.email || '',
-    phone: editUserData?.phone || '',
+    id: oneUser?.id || '',
+    name: oneUser?.name || '',
+    email: oneUser?.email || '',
+    phone: oneUser?.phone || '',
   });
+  const getOneUser = async () => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/users/${editUserData?.id}`)
+      .then((uData) => {
+        console.log('udata==>', uData);
+        setOneUser(uData?.data);
+      });
+  };
 
   const handleClose = () => setEditModalShow(false);
 
@@ -83,8 +91,13 @@ const UserEditPopup = ({
     }
   };
 
-  useEffect(() => {}, [editUserData]);
-  console.log('editUsersForm@@@-->', editUsersForm?.id);
+  useEffect(() => {
+    getOneUser();
+  }, []);
+  console.log('editUsersForm@@@-->', editUsersForm, oneUser);
+
+  const [oneUser1, setOneUser1] = useState(oneUser?.id);
+  console.log('oneUser1@@@-->', oneUser1);
 
   return (
     <Modal

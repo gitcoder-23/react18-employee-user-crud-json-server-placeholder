@@ -80,11 +80,7 @@ const UserList = () => {
   // const editButtonClick = (userData) => {
   //   console.log('userData->', userData);
   //   setEditModalShow(true);
-  //   localStorage.setItem('editKey', JSON.stringify(userData));
-
-  //   const eStoredData = JSON.parse(localStorage.getItem('editKey'));
-  //   console.log('eStoredData->', eStoredData);
-  //   setEditUserDara(eStoredData);
+  //   setEditUserDara(userData);
   // };
 
   console.log('userDatas-->', userDatas);
