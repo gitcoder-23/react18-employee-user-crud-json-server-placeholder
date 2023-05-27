@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Menu from '../../../components/Menu';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loader from '../../../components/Loader';
 import ListData from './ListData';
@@ -8,6 +8,7 @@ import ToastMessage from '../../../components/ToastMessage';
 import { toast } from 'react-toastify';
 
 const UserList = () => {
+  const navigate = useNavigate();
   const [userDatas, setUserDatas] = useState([] | null);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
@@ -17,7 +18,7 @@ const UserList = () => {
     axios
       .get('https://jsonplaceholder.typicode.com/users')
       .then((response) => {
-        console.log('response-->', response);
+        // console.log('response-->', response);
         if (response.status === 200) {
           if (response.data.length === 0) {
             setIsLoading(false);
@@ -39,10 +40,17 @@ const UserList = () => {
     return () => {};
   }, []);
 
-  console.log('userDatas-->', userDatas);
+  // console.log('userDatas-->', userDatas);
+
+  const loadUserDetail = (userId) => {
+    console.log('userId->', userId);
+    navigate(`/viewuser/${userId}`, {
+      state: { singleUser: userId },
+    });
+  };
 
   const deleteUser = (userId) => {
-    console.log('userId-->', userId);
+    // console.log('userId-->', userId);
 
     if (window.confirm('Do you want?')) {
       const removeUser = [...userDatas].filter((uData, indx) => {
@@ -95,6 +103,7 @@ const UserList = () => {
                         user={user}
                         key={user.id}
                         deleteUser={deleteUser}
+                        loadUserDetail={loadUserDetail}
                       />
                     );
                   })}

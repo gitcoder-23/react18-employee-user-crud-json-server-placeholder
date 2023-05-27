@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListData = ({ user, deleteUser }) => {
+const ListData = ({ user, deleteUser, loadUserDetail }) => {
   return (
     <>
       <tbody>
@@ -11,7 +11,11 @@ const ListData = ({ user, deleteUser }) => {
           <td>{user.phone}</td>
 
           <td>
-            <button onClick={() => {}} type="button" className="btn btn-info">
+            <button
+              onClick={() => loadUserDetail(user.id)}
+              type="button"
+              className="btn btn-info"
+            >
               View
             </button>{' '}
             &nbsp;

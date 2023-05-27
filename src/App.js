@@ -6,14 +6,13 @@ import EmployeeCreate from './pages/EmployeeCreate';
 import EmployeeDetail from './pages/EmployeeDetail';
 import EmployeeEdit from './pages/EmployeeEdit';
 import UserList from './pages/crudJsonPlace/userlist/UserList';
+import UserDetail from './pages/crudJsonPlace/userlist/UserDetail';
 
 function App() {
   return (
     <div className="App">
       <h1>ReactJs CRUD Employee App</h1>
       <Routes>
-        {/* Using Json-Placeholder */}
-        <Route exact path="/userlist" element={<UserList />} />
         {/* Using Json Server */}
         <Route exact path="/" element={<EmployeeList />} />
         <Route exact path="/employee/create" element={<EmployeeCreate />} />
@@ -23,6 +22,10 @@ function App() {
           element={<EmployeeDetail />}
         />
         <Route exact path="/employee/edit/:empId" element={<EmployeeEdit />} />
+
+        {/* Using Json-Placeholder */}
+        <Route exact path="/userlist" element={<UserList />} />
+        <Route exact path="/viewuser/:uId" element={<UserDetail />} />
       </Routes>
     </div>
   );
