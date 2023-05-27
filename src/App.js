@@ -11,7 +11,7 @@ import UserDetail from './pages/crudJsonPlace/userlist/UserDetail';
 function App() {
   return (
     <div className="App">
-      <h1>ReactJs CRUD Employee App</h1>
+      <h1>ReactJs CRUD Employee/ User App</h1>
       <Routes>
         {/* Using Json Server */}
         <Route exact path="/" element={<EmployeeList />} />
