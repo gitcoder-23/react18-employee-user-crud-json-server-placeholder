@@ -12,7 +12,7 @@ const ListData = ({ user, deleteUser, loadUserDetail }) => {
 
           <td>
             <button
-              onClick={() => loadUserDetail(user.id)}
+              onClick={() => loadUserDetail(user)}
               type="button"
               className="btn btn-info"
             >

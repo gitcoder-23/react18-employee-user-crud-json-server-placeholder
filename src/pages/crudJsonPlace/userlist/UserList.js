@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import Menu from '../../../components/Menu';
 import { useNavigate } from 'react-router-dom';
-import { Modal, Button } from 'react-bootstrap';
 import axios from 'axios';
 import Loader from '../../../components/Loader';
 import ListData from './ListData';
 import ToastMessage from '../../../components/ToastMessage';
 import { toast } from 'react-toastify';
 import UserCreateModal from '../modalPopup/UserCreateModal';
+import UserViewModal from '../modalPopup/UserViewModal';
 
 const UserList = () => {
   const navigate = useNavigate();
   const [userDatas, setUserDatas] = useState([] | null);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
-  const [addMessage, setAddMessage] = useState('');
   const [modalShow, setModalShow] = useState(false);
+  const [viewModalShow, setViewModalShow] = useState(false);
+  const [viewUserData, setViewUserDara] = useState({} | null);
 
   const getAllUser = () => {
     setIsLoading(true);
@@ -45,11 +45,14 @@ const UserList = () => {
     return () => {};
   }, []);
 
-  const loadUserDetail = (userId) => {
-    console.log('userId->', userId);
-    navigate(`/viewuser/${userId}`, {
-      state: { singleUser: userId },
-    });
+  const loadUserDetail = (userData) => {
+    console.log('userData->', userData);
+    setViewUserDara(userData);
+    setViewModalShow(true);
+
+    // navigate(`/viewuser/${userId}`, {
+    //   state: { singleUser: userId },
+    // });
   };
 
   const deleteUser = (userId) => {
@@ -91,6 +94,12 @@ const UserList = () => {
         setModalShow={setModalShow}
         userDatas={userDatas}
         setUserDatas={setUserDatas}
+      />
+
+      <UserViewModal
+        viewModalShow={viewModalShow}
+        viewUserData={viewUserData}
+        setViewModalShow={setViewModalShow}
       />
 
       {/* Modal End */}
