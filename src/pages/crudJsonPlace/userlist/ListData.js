@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListData = ({ user, deleteUser, loadUserDetail }) => {
+const ListData = ({ user, deleteUser, loadUserDetail, editButtonClick }) => {
   return (
     <>
       <tbody>
@@ -20,7 +20,7 @@ const ListData = ({ user, deleteUser, loadUserDetail }) => {
             </button>{' '}
             &nbsp;
             <button
-              onClick={() => {}}
+              // onClick={() => editButtonClick(user)}
               type="button"
               className="btn btn-warning"
             >

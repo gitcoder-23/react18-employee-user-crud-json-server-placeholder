@@ -8,15 +8,17 @@ import ToastMessage from '../../../components/ToastMessage';
 import { toast } from 'react-toastify';
 import UserCreateModal from '../modalPopup/UserCreateModal';
 import UserViewModal from '../modalPopup/UserViewModal';
+import UserEditPopup from '../modalPopup/UserEditPopup';
 
 const UserList = () => {
-  const navigate = useNavigate();
-  const [userDatas, setUserDatas] = useState([] | null);
+  const [userDatas, setUserDatas] = useState([] || null);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [modalShow, setModalShow] = useState(false);
   const [viewModalShow, setViewModalShow] = useState(false);
-  const [viewUserData, setViewUserDara] = useState({} | null);
+  const [viewUserData, setViewUserDara] = useState({} || null);
+  const [editModalShow, setEditModalShow] = useState(false);
+  const [editUserData, setEditUserDara] = useState({});
 
   const getAllUser = () => {
     setIsLoading(true);
@@ -46,13 +48,8 @@ const UserList = () => {
   }, []);
 
   const loadUserDetail = (userData) => {
-    console.log('userData->', userData);
     setViewUserDara(userData);
     setViewModalShow(true);
-
-    // navigate(`/viewuser/${userId}`, {
-    //   state: { singleUser: userId },
-    // });
   };
 
   const deleteUser = (userId) => {
@@ -80,6 +77,16 @@ const UserList = () => {
     //   });
   };
 
+  // const editButtonClick = (userData) => {
+  //   console.log('userData->', userData);
+  //   setEditModalShow(true);
+  //   localStorage.setItem('editKey', JSON.stringify(userData));
+
+  //   const eStoredData = JSON.parse(localStorage.getItem('editKey'));
+  //   console.log('eStoredData->', eStoredData);
+  //   setEditUserDara(eStoredData);
+  // };
+
   console.log('userDatas-->', userDatas);
 
   return (
@@ -101,6 +108,13 @@ const UserList = () => {
         viewUserData={viewUserData}
         setViewModalShow={setViewModalShow}
       />
+
+      {/* <UserEditPopup
+        editModalShow={editModalShow}
+        setEditModalShow={setEditModalShow}
+        editUserData={editUserData}
+        setEditUserDara={setEditUserDara}
+      /> */}
 
       {/* Modal End */}
       <div className="card">
@@ -145,6 +159,7 @@ const UserList = () => {
                         key={user.id}
                         deleteUser={deleteUser}
                         loadUserDetail={loadUserDetail}
+                        // editButtonClick={editButtonClick}
                       />
                     );
                   })}

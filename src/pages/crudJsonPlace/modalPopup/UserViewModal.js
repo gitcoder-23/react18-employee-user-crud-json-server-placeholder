@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import Loader from '../../../components/Loader';
-import axios from 'axios';
 
 const UserViewModal = ({ viewModalShow, viewUserData, setViewModalShow }) => {
-  console.log('viewUserData-->', viewUserData);
+  // console.log('viewUserData-->', viewUserData);
   const handleClose = () => setViewModalShow(false);
 
   useEffect(() => {
