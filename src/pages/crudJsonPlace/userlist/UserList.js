@@ -20,6 +20,13 @@ const UserList = () => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [editUserData, setEditUserDara] = useState({});
 
+  const [editUsersForm, setEditUsersForm] = useState({
+    id: '',
+    name: '',
+    email: '',
+    phone: '',
+  });
+
   const getAllUser = () => {
     setIsLoading(true);
     axios
@@ -77,13 +84,22 @@ const UserList = () => {
     //   });
   };
 
-  // const editButtonClick = (userData) => {
-  //   console.log('userData->', userData);
-  //   setEditModalShow(true);
-  //   setEditUserDara(userData);
-  // };
+  const editButtonClick = (userData) => {
+    // console.log('userData->', userData);
+    setEditModalShow(true);
+    setEditUserDara(userData);
+  };
 
-  console.log('userDatas-->', userDatas);
+  useEffect(() => {
+    setEditUsersForm({
+      id: editUserData?.id,
+      name: editUserData?.name,
+      email: editUserData?.email,
+      phone: editUserData?.phone,
+    });
+  }, [editUserData]);
+
+  // console.log('editUsersForm-->', editUsersForm);
 
   return (
     <div className="container">
@@ -105,12 +121,15 @@ const UserList = () => {
         setViewModalShow={setViewModalShow}
       />
 
-      {/* <UserEditPopup
+      <UserEditPopup
+        userDatas={userDatas}
+        setUserDatas={setUserDatas}
         editModalShow={editModalShow}
         setEditModalShow={setEditModalShow}
         editUserData={editUserData}
-        setEditUserDara={setEditUserDara}
-      /> */}
+        editUsersForm={editUsersForm}
+        setEditUsersForm={setEditUsersForm}
+      />
 
       {/* Modal End */}
       <div className="card">
@@ -155,7 +174,7 @@ const UserList = () => {
                         key={user.id}
                         deleteUser={deleteUser}
                         loadUserDetail={loadUserDetail}
-                        // editButtonClick={editButtonClick}
+                        editButtonClick={editButtonClick}
                       />
                     );
                   })}

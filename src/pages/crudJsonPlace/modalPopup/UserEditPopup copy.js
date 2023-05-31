@@ -1,23 +1,47 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { Modal, Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
 const UserEditPopup = ({
-  userDatas,
-  setUserDatas,
   editModalShow,
   setEditModalShow,
   editUserData,
-  editUsersForm,
-  setEditUsersForm,
+  setEditUserDara,
 }) => {
+  console.log('editUserData==>', editUserData);
   const [editMessage, setEditMessage] = useState('');
 
   const [success, setSuccess] = useState(false);
+  const [validation, setValidation] = useState(false);
+  const [oneUser, setOneUser] = useState({});
 
-  useEffect(() => {}, [editUsersForm, userDatas]);
+  const [editUsersForm, setEditUsersForm] = useState({
+    id: editUserData?.id || '',
+    name: editUserData?.name || '',
+    email: editUserData?.email || '',
+    phone: editUserData?.phone || '',
+  });
+
+  useEffect(() => {
+    // getOneUser();
+    setEditUsersForm({
+      id: editUserData?.id || '',
+      name: editUserData?.name || '',
+      email: editUserData?.email || '',
+      phone: editUserData?.phone || '',
+    });
+  }, []);
+
+  const getOneUser = async () => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/users/${editUserData?.id}`)
+      .then((uData) => {
+        console.log('udata==>', uData);
+        setOneUser(uData?.data);
+      });
+  };
 
   const handleClose = () => setEditModalShow(false);
 
@@ -26,6 +50,7 @@ const UserEditPopup = ({
       ...editUsersForm,
       [e.target.name]: e.target.value,
     });
+    // console.log('onFieldChange', editUsersForm);
   };
 
   const handlesubmit = () => {
@@ -41,7 +66,7 @@ const UserEditPopup = ({
         email: editUsersForm.email,
         phone: editUsersForm.phone,
       };
-      // console.log('formData->', formData);
+      console.log('formData->', formData);
 
       axios
         .put(
@@ -50,45 +75,35 @@ const UserEditPopup = ({
         )
         .then((data) => {
           console.log(data);
-          if (data.status === 200) {
-            const updateUser = [...userDatas].map((eData) => {
-              if (eData.id === editUserData?.id) {
-                eData.name = editUsersForm.name;
-                eData.email = editUsersForm.email;
-                eData.phone = editUsersForm.phone;
-              }
-              return eData;
-            });
-            setUserDatas([...updateUser]);
+          // if (data.status === 200) {
+          //   setSuccess(true);
+          //   setEditMessage('Form edited success!');
 
-            setSuccess(true);
+          //   setTimeout(() => {
+          //     setEditUsersForm({
+          //       name: '',
+          //       email: '',
+          //       phone: '',
+          //     });
+          //   }, 1000);
 
-            toast.success('Form edited success!', {
-              position: toast.POSITION.TOP_RIGHT,
-            });
-            setEditMessage('Form edited success!');
-
-            setTimeout(() => {
-              setEditUsersForm({
-                name: '',
-                email: '',
-                phone: '',
-              });
-              setEditMessage('');
-              setEditModalShow(false);
-            }, 1000);
-          } else {
-            setSuccess(false);
-            setEditMessage('Form edited failed! Something error');
-            setTimeout(() => {
-              setEditMessage('');
-            }, 1000);
-          }
+          //   setTimeout(() => {
+          //     setEditMessage('');
+          //   }, 1500);
+          // } else {
+          //   setSuccess(false);
+          //   setEditMessage('Form edited failed! Something error');
+          //   setTimeout(() => {
+          //     setEditMessage('');
+          //   }, 1500);
+          // }
         })
         .catch((err) => console.log('submit-err', err));
     }
   };
-  // console.log('editUsersForm==>', editUsersForm);
+
+  // const [oneUser1, setOneUser1] = useState(oneUser?.id);
+  // console.log('oneUser1@@@-->', oneUser1);
 
   return (
     <Modal
@@ -154,6 +169,26 @@ const UserEditPopup = ({
                       className="form-control"
                     ></input>
                   </div>
+                </div>
+
+                <div className="col-lg-12">
+                  <div className="form-group">
+                    <button className="btn btn-success" type="submit">
+                      Save
+                    </button>{' '}
+                    &nbsp;
+                  </div>
+                  {editMessage && (
+                    <h3
+                      className="pt-2"
+                      style={{
+                        color: `${success === true ? 'green' : 'red'}`,
+                        fontSize: '18px',
+                      }}
+                    >
+                      {editMessage}
+                    </h3>
+                  )}
                 </div>
               </div>
             </div>

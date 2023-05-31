@@ -19,14 +19,14 @@ const ListData = ({ user, deleteUser, loadUserDetail, editButtonClick }) => {
               View
             </button>{' '}
             &nbsp;
-            {/* <button
+            <button
               onClick={() => editButtonClick(user)}
               type="button"
               className="btn btn-warning"
             >
               Edit
             </button>{' '}
-            &nbsp; */}
+            &nbsp;
             <button
               onClick={() => deleteUser(user.id)}
               type="button"
