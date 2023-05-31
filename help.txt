@@ -14,3 +14,10 @@ https://dev.to/nikita_guliaev/deploying-create-react-app-with-json-server-as-bac
 https://getbootstrap.com/docs/4.0/getting-started/introduction/
 
 https://react-bootstrap.github.io/getting-started/introduction
+
+
+
+
+
+// JsonPlaceholder CodeSandBox CRUD url
+https://codesandbox.io/embed/react-crud-jsonplaceholder-ey0w4?codemirror=1
