@@ -5,8 +5,8 @@ const Menu = () => {
   return (
     <div className="container">
       <div className="">
-        <button className="bg bg-warning m-4">
-          <Link to="/" style={{ color: '#000' }}>
+        <button className="bg bg-primary m-4">
+          <Link to="/" style={{ color: '#fff' }}>
             Employee List By Json-Server
           </Link>
         </button>

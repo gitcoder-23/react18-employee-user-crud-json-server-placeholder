@@ -19,17 +19,13 @@ const UserViewModal = ({ viewModalShow, viewUserData, setViewModalShow }) => {
       aria-labelledby="contained-modal-title-vcenter"
     >
       <Modal.Header closeButton>
-        <Modal.Title>User Create</Modal.Title>
+        <Modal.Title>User Detail</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div>
           <div className="container">
             <div className="card row py-4" style={{ textAlign: 'left' }}>
-              <div className="card-title">
-                <h2>
-                  <u>User Detail</u>
-                </h2>
-              </div>
+              <div className="card-title"></div>
               <div className="card-body"></div>
 
               {viewUserData === null ? (
