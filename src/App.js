@@ -7,6 +7,7 @@ import EmployeeDetail from './pages/EmployeeDetail';
 import EmployeeEdit from './pages/EmployeeEdit';
 import UserList from './pages/crudJsonPlace/userlist/UserList';
 import UserDetail from './pages/crudJsonPlace/userlist/UserDetail';
+import DummyUserList from './pages/dummyJsonApi/DummyUserList';
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
         {/* Using Json-Placeholder */}
         <Route exact path="/userlist" element={<UserList />} />
         <Route exact path="/viewuser/:uId" element={<UserDetail />} />
+
+        {/* Using dummy-Json-Api */}
+        <Route exact path="/dummyuserlist" element={<DummyUserList />} />
+        {/* <Route exact path="/viewdummyuser/:uId" element={<UserDetail />} /> */}
       </Routes>
     </div>
   );
