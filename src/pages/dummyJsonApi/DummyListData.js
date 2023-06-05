@@ -39,7 +39,7 @@ const DummyListData = ({
             >
               View
             </button>{' '}
-            &nbsp;
+            {/* &nbsp;
             <button
               onClick={() => editButtonClick(user)}
               type="button"
@@ -47,14 +47,14 @@ const DummyListData = ({
             >
               Edit
             </button>{' '}
-            &nbsp;
-            <button
+            &nbsp; */}
+            {/* <button
               onClick={() => deleteUser(user.id)}
               type="button"
               className="btn btn-danger"
             >
               Delete
-            </button>
+            </button> */}
           </td>
         </tr>
       </tbody>
