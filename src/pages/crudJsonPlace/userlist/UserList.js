@@ -166,7 +166,7 @@ const UserList = () => {
                 </thead>
 
                 {userDatas &&
-                  userDatas.map((user, index) => {
+                  (userDatas || [])?.map((user, index) => {
                     return (
                       <ListData
                         user={user}

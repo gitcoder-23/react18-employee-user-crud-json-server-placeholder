@@ -90,7 +90,7 @@ const DummyUserList = () => {
                 </thead>
 
                 {userDatas &&
-                  userDatas.map((user, index) => {
+                  (userDatas || [])?.map((user, index) => {
                     return (
                       <DummyListData
                         user={user}
