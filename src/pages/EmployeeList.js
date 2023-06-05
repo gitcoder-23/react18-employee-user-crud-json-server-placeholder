@@ -106,7 +106,6 @@ const EmployeeList = () => {
 
   return (
     <div className="container">
-      <Menu />
       <ToastMessage />
       <div className="card">
         <div className="card-title">

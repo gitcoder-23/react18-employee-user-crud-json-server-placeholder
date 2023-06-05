@@ -16,7 +16,8 @@ https://getbootstrap.com/docs/4.0/getting-started/introduction/
 https://react-bootstrap.github.io/getting-started/introduction
 
 
-
+// Dummy Image
+https://picsum.photos/
 
 
 // JsonPlaceholder CodeSandBox CRUD url

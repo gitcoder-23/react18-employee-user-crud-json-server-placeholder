@@ -104,7 +104,6 @@ const UserList = () => {
   return (
     <div className="container">
       <ToastMessage />
-      <Menu />
 
       {/* Modal */}
 

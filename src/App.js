@@ -8,11 +8,13 @@ import EmployeeEdit from './pages/EmployeeEdit';
 import UserList from './pages/crudJsonPlace/userlist/UserList';
 import UserDetail from './pages/crudJsonPlace/userlist/UserDetail';
 import DummyUserList from './pages/dummyJsonApi/DummyUserList';
+import Menu from './components/Menu';
 
 function App() {
   return (
     <div className="App">
       <h1>ReactJs CRUD Employee/ User App</h1>
+      <Menu />
       <Routes>
         {/* Using Json Server */}
         <Route exact path="/" element={<EmployeeList />} />
