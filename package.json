@@ -1,5 +1,6 @@
 {
   "name": "react18-employeecrud-json-server",
+  "git-lnk": "https://github.com/gitcoder-23/react18-employee-user-crud-json-server-placeholder.git",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
