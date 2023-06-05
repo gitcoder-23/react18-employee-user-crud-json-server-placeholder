@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import DummyListData from './DummyListData';
+import DummyUserViewModal from './dummymodals/DummyUserViewModal';
 
 const DummyUserList = () => {
   const [userDatas, setUserDatas] = useState([] || null);
@@ -39,8 +40,18 @@ const DummyUserList = () => {
     return () => {};
   }, []);
 
+  const loadUserDetail = (userData) => {
+    setViewUserDara(userData);
+    setViewModalShow(true);
+  };
+
   return (
     <div className="container">
+      <DummyUserViewModal
+        viewModalShow={viewModalShow}
+        viewUserData={viewUserData}
+        setViewModalShow={setViewModalShow}
+      />
       <div className="card">
         <div className="card-title">
           <h1>
@@ -85,7 +96,7 @@ const DummyUserList = () => {
                         user={user}
                         key={user.id}
                         // deleteUser={deleteUser}
-                        // loadUserDetail={loadUserDetail}
+                        loadUserDetail={loadUserDetail}
                         // editButtonClick={editButtonClick}
                       />
                     );

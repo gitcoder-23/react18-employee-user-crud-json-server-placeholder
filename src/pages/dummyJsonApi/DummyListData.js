@@ -32,7 +32,7 @@ const DummyListData = ({
           <td>{user.phone}</td>
 
           <td>
-            {/* <button
+            <button
               onClick={() => loadUserDetail(user)}
               type="button"
               className="btn btn-info"
@@ -54,7 +54,7 @@ const DummyListData = ({
               className="btn btn-danger"
             >
               Delete
-            </button> */}
+            </button>
           </td>
         </tr>
       </tbody>
