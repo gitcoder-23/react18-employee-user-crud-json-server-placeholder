@@ -143,9 +143,14 @@ const DummyUserEditModal = ({
                       onChange={(e) => onTextFieldChange(e)}
                     >
                       {Object.keys(genderData).map((gData) => {
+                        console.log(gData);
                         return (
                           <option value={gData} name={gData}>
-                            {gData}
+                            {gData === 'male'
+                              ? 'Male'
+                              : gData === 'female'
+                              ? 'Female'
+                              : 'Others'}
                           </option>
                         );
                       })}
