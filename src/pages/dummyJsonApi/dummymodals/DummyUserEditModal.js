@@ -11,9 +11,17 @@ const DummyUserEditModal = ({
   editUsersForm,
   setUserDatas,
 }) => {
+  console.log('editUserData-->', editUserData);
   const [editMessage, setEditMessage] = useState('');
+  const [edId, setEdId] = useState(null);
 
   const [success, setSuccess] = useState(false);
+
+  const genderData = {
+    male: 'Male',
+    female: 'Female',
+    others: 'Others',
+  };
 
   useEffect(() => {}, [editUsersForm, userDatas]);
 
@@ -26,12 +34,14 @@ const DummyUserEditModal = ({
 
   const handleEditsubmit = () => {
     const updateUser = [...userDatas].map((eData) => {
+      setEdId(eData.id);
       if (eData.id === editUserData?.id) {
         eData.firstName = editUsersForm.firstName;
         eData.lastName = editUsersForm.lastName;
         eData.email = editUsersForm.email;
         eData.phone = editUsersForm.phone;
         eData.age = editUsersForm.age;
+        eData.gender = editUsersForm.gender;
       }
       return eData;
     });
@@ -44,9 +54,12 @@ const DummyUserEditModal = ({
     setEditMessage('Form edited success!');
     setTimeout(() => {
       setEditUsersForm({
-        name: '',
+        firstName: '',
+        lastName: '',
         email: '',
         phone: '',
+        age: null,
+        gender: '',
       });
       setEditMessage('');
       setEditModalShow(false);
@@ -116,6 +129,27 @@ const DummyUserEditModal = ({
                       onChange={(e) => onTextFieldChange(e)}
                       className="form-control"
                     ></input>
+                  </div>
+                </div>
+
+                <div className="col-lg-12">
+                  <div className="form-group">
+                    <label>Gender</label>
+                    <select
+                      className="form-control"
+                      id="gender"
+                      name="gender"
+                      defaultValue={editUserData?.gender}
+                      onChange={(e) => onTextFieldChange(e)}
+                    >
+                      {Object.keys(genderData).map((gData) => {
+                        return (
+                          <option value={gData} name={gData}>
+                            {gData}
+                          </option>
+                        );
+                      })}
+                    </select>
                   </div>
                 </div>
 

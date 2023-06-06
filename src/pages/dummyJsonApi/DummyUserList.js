@@ -22,6 +22,7 @@ const DummyUserList = () => {
     email: '',
     phone: '',
     age: null,
+    gender: '',
   });
 
   const getAllUser = () => {

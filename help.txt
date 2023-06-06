@@ -22,3 +22,8 @@ https://picsum.photos/
 
 // JsonPlaceholder CodeSandBox CRUD url
 https://codesandbox.io/embed/react-crud-jsonplaceholder-ey0w4?codemirror=1
+
+
+
+// CRUD
+https://www.freecodecamp.org/news/how-to-perform-crud-operations-using-react/
