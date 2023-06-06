@@ -1,68 +1,84 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
-const DummyUserEditModal = ({
+const DummyUserAddModal = ({
+  addModalShow,
+  setAddModalShow,
   userDatas,
-  editModalShow,
-  setEditModalShow,
-  editUserData,
-  setEditUsersForm,
-  editUsersForm,
   setUserDatas,
 }) => {
-  const [editMessage, setEditMessage] = useState('');
+  const [addMessage, setAddMessage] = useState('');
 
   const [success, setSuccess] = useState(false);
-
-  useEffect(() => {}, [editUsersForm, userDatas]);
+  const [addUserForm, setAddUserForm] = useState({
+    id: Date.now(),
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    age: null,
+  });
 
   const onTextFieldChange = (e) => {
-    setEditUsersForm({
-      ...editUsersForm,
+    setAddUserForm({
+      ...addUserForm,
       [e.target.name]: e.target.value,
     });
+    // console.log('onFieldChange', userForm);
   };
+  const submitClick = () => {
+    if (
+      !addUserForm.firstName ||
+      !addUserForm.lastName ||
+      !addUserForm.email ||
+      !addUserForm.phone ||
+      !addUserForm.age
+    ) {
+      setSuccess(false);
+      setAddMessage('Please fill all the fields!');
 
-  const handleEditsubmit = () => {
-    const updateUser = [...userDatas].map((eData) => {
-      if (eData.id === editUserData?.id) {
-        eData.firstName = editUsersForm.firstName;
-        eData.lastName = editUsersForm.lastName;
-        eData.email = editUsersForm.email;
-        eData.phone = editUsersForm.phone;
-        eData.age = editUsersForm.age;
-      }
-      return eData;
-    });
-    setUserDatas([...updateUser]);
-    setSuccess(true);
-
-    toast.success('User edited success!', {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-    setEditMessage('Form edited success!');
-    setTimeout(() => {
-      setEditUsersForm({
-        name: '',
-        email: '',
-        phone: '',
+      setTimeout(() => {
+        setAddMessage('');
+      }, 1500);
+    } else {
+      let newFormValue = {
+        id: addUserForm.id,
+        firstName: addUserForm.firstName,
+        lastName: addUserForm.lastName,
+        email: addUserForm.email,
+        phone: addUserForm.phone,
+        age: addUserForm.age,
+      };
+      setUserDatas([...userDatas, newFormValue]);
+      setSuccess(true);
+      setAddMessage('User created!');
+      toast.success('User added success!', {
+        position: toast.POSITION.TOP_RIGHT,
       });
-      setEditMessage('');
-      setEditModalShow(false);
-    }, 1000);
+      setTimeout(() => {
+        setAddUserForm({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          age: null,
+        });
+        setAddMessage('');
+        setAddModalShow(false);
+      }, 2000);
+    }
   };
-
   return (
     <Modal
-      show={editModalShow}
-      onHide={() => setEditModalShow(false)}
+      show={addModalShow}
+      onHide={() => setAddModalShow(false)}
       animation={true}
       centered
       aria-labelledby="contained-modal-title-vcenter"
     >
       <Modal.Header closeButton>
-        <Modal.Title>User Edit</Modal.Title>
+        <Modal.Title>User Add</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <form className="container">
@@ -71,22 +87,11 @@ const DummyUserEditModal = ({
               <div className="row">
                 <div className="col-lg-12">
                   <div className="form-group">
-                    <label>ID</label>
-                    <input
-                      value={editUsersForm?.id}
-                      disabled="disabled"
-                      className="form-control"
-                    ></input>
-                  </div>
-                </div>
-
-                <div className="col-lg-12">
-                  <div className="form-group">
                     <label>First Name</label>
                     <input
                       name="firstName"
                       id="firstName"
-                      value={editUsersForm?.firstName}
+                      value={addUserForm?.firstName}
                       onChange={(e) => onTextFieldChange(e)}
                       className="form-control"
                     ></input>
@@ -99,7 +104,7 @@ const DummyUserEditModal = ({
                     <input
                       name="lastName"
                       id="lastName"
-                      value={editUsersForm?.lastName}
+                      value={addUserForm?.lastName}
                       onChange={(e) => onTextFieldChange(e)}
                       className="form-control"
                     ></input>
@@ -108,11 +113,11 @@ const DummyUserEditModal = ({
 
                 <div className="col-lg-12">
                   <div className="form-group">
-                    <label>Phone</label>
+                    <label>Age</label>
                     <input
                       name="age"
                       id="age"
-                      value={editUsersForm?.age}
+                      value={addUserForm?.age}
                       onChange={(e) => onTextFieldChange(e)}
                       className="form-control"
                     ></input>
@@ -125,7 +130,7 @@ const DummyUserEditModal = ({
                     <input
                       name="email"
                       id="email"
-                      value={editUsersForm?.email}
+                      value={addUserForm?.email}
                       onChange={(e) => onTextFieldChange(e)}
                       className="form-control"
                     ></input>
@@ -138,7 +143,7 @@ const DummyUserEditModal = ({
                     <input
                       name="phone"
                       id="phone"
-                      value={editUsersForm?.phone}
+                      value={addUserForm?.phone}
                       onChange={(e) => onTextFieldChange(e)}
                       className="form-control"
                     ></input>
@@ -150,7 +155,7 @@ const DummyUserEditModal = ({
         </form>
       </Modal.Body>
       <Modal.Footer>
-        {editMessage && (
+        {addMessage && (
           <h3
             className="pt-2"
             style={{
@@ -158,13 +163,13 @@ const DummyUserEditModal = ({
               fontSize: '18px',
             }}
           >
-            {editMessage}
+            {addMessage}
           </h3>
         )}
-        <Button variant="secondary" onClick={() => setEditModalShow(false)}>
+        <Button variant="secondary" onClick={() => setAddModalShow(false)}>
           Close
         </Button>
-        <Button variant="primary" onClick={handleEditsubmit}>
+        <Button variant="primary" onClick={submitClick}>
           Submit
         </Button>
       </Modal.Footer>
@@ -172,4 +177,4 @@ const DummyUserEditModal = ({
   );
 };
 
-export default DummyUserEditModal;
+export default DummyUserAddModal;

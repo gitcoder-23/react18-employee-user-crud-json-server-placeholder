@@ -5,12 +5,13 @@ const DummyListData = ({
   deleteUser,
   loadUserDetail,
   editButtonClick,
+  index,
 }) => {
   return (
     <>
       <tbody>
         <tr>
-          <td>{user.id}</td>
+          <td>{index + 1}</td>
           <td>
             <img
               src={
@@ -48,13 +49,13 @@ const DummyListData = ({
               Edit
             </button>{' '}
             &nbsp;
-            {/* <button
+            <button
               onClick={() => deleteUser(user.id)}
               type="button"
               className="btn btn-danger"
             >
               Delete
-            </button> */}
+            </button>
           </td>
         </tr>
       </tbody>

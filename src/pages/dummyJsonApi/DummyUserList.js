@@ -3,14 +3,16 @@ import React, { useEffect, useState } from 'react';
 import DummyListData from './DummyListData';
 import DummyUserViewModal from './dummymodals/DummyUserViewModal';
 import DummyUserEditModal from './dummymodals/DummyUserEditModal';
+import DummyUserAddModal from './dummymodals/DummyUserAddModal';
+import { toast } from 'react-toastify';
 
 const DummyUserList = () => {
   const [userDatas, setUserDatas] = useState([] || null);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
-  const [modalShow, setModalShow] = useState(false);
   const [viewModalShow, setViewModalShow] = useState(false);
   const [viewUserData, setViewUserDara] = useState({} || null);
+  const [addModalShow, setAddModalShow] = useState(false);
   const [editModalShow, setEditModalShow] = useState(false);
   const [editUserData, setEditUserData] = useState({});
 
@@ -61,6 +63,18 @@ const DummyUserList = () => {
     setEditModalShow(true);
   };
 
+  const deleteUser = (userId) => {
+    // console.log('userId-->', userId);
+
+    if (window.confirm('Do you want?')) {
+      const removeUser = [...userDatas].filter((uData, indx) => {
+        return uData.id !== userId;
+      });
+
+      setUserDatas(removeUser);
+    }
+  };
+
   useEffect(() => {
     setEditUsersForm({
       id: editUserData?.id,
@@ -80,6 +94,13 @@ const DummyUserList = () => {
         setViewModalShow={setViewModalShow}
       />
 
+      <DummyUserAddModal
+        addModalShow={addModalShow}
+        setAddModalShow={setAddModalShow}
+        userDatas={userDatas}
+        setUserDatas={setUserDatas}
+      />
+
       <DummyUserEditModal
         editModalShow={editModalShow}
         setEditModalShow={setEditModalShow}
@@ -95,7 +116,7 @@ const DummyUserList = () => {
           <h1>
             User List{' '}
             <button
-              onClick={() => setModalShow(true)}
+              onClick={() => setAddModalShow(true)}
               className="btn btn-success"
               data-toggle="modal"
               data-target="#exampleModalCenter"
@@ -133,7 +154,8 @@ const DummyUserList = () => {
                       <DummyListData
                         user={user}
                         key={user.id}
-                        // deleteUser={deleteUser}
+                        index={index}
+                        deleteUser={deleteUser}
                         loadUserDetail={loadUserDetail}
                         editButtonClick={editButtonClick}
                       />
