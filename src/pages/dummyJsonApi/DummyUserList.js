@@ -29,7 +29,7 @@ const DummyUserList = () => {
     axios
       .get('https://dummyjson.com/users')
       .then((response) => {
-        // console.log('dummy-response-->', response);
+        console.log('dummy-response-->', response.data);
         if (response.status === 200) {
           if (response.data.users.length === 0) {
             setIsLoading(false);
@@ -140,7 +140,7 @@ const DummyUserList = () => {
                     <td>Employee Image</td>
                     <td>Employee Name</td>
                     <td>Age</td>
-                    {/* <td>Gender</td> */}
+                    <td>Gender</td>
                     <td>Email</td>
                     <td>Phone</td>
                     <td colSpan={2}>Action</td>

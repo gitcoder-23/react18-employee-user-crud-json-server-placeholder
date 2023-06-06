@@ -18,6 +18,7 @@ const DummyUserAddModal = ({
     email: '',
     phone: '',
     age: null,
+    gender: '',
   });
 
   const onTextFieldChange = (e) => {
@@ -33,7 +34,8 @@ const DummyUserAddModal = ({
       !addUserForm.lastName ||
       !addUserForm.email ||
       !addUserForm.phone ||
-      !addUserForm.age
+      !addUserForm.age ||
+      !addUserForm.gender
     ) {
       setSuccess(false);
       setAddMessage('Please fill all the fields!');
@@ -49,6 +51,7 @@ const DummyUserAddModal = ({
         email: addUserForm.email,
         phone: addUserForm.phone,
         age: addUserForm.age,
+        gender: addUserForm.gender,
       };
       setUserDatas([...userDatas, newFormValue]);
       setSuccess(true);
@@ -63,12 +66,14 @@ const DummyUserAddModal = ({
           email: '',
           phone: '',
           age: null,
+          gender: '',
         });
         setAddMessage('');
         setAddModalShow(false);
       }, 2000);
     }
   };
+  console.log('gender-->', addUserForm?.gender);
   return (
     <Modal
       show={addModalShow}
@@ -121,6 +126,23 @@ const DummyUserAddModal = ({
                       onChange={(e) => onTextFieldChange(e)}
                       className="form-control"
                     ></input>
+                  </div>
+                </div>
+
+                <div className="col-lg-12">
+                  <div className="form-group">
+                    <label>Gender</label>
+                    <select
+                      className="form-control"
+                      id="gender"
+                      name="gender"
+                      onChange={(e) => onTextFieldChange(e)}
+                    >
+                      <option value="">---Select---</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="others">Others</option>
+                    </select>
                   </div>
                 </div>
 

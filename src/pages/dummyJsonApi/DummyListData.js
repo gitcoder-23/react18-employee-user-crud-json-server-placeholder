@@ -27,7 +27,7 @@ const DummyListData = ({
             {user.firstName} {user.lastName}
           </td>
           <td>{user.age}</td>
-          {/* <td>{user.gender}</td> */}
+          <td>{user.gender}</td>
 
           <td>{user.email}</td>
           <td>{user.phone}</td>
