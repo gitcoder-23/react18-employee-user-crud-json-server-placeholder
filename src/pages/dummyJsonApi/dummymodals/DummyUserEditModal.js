@@ -118,7 +118,7 @@ const DummyUserEditModal = ({
 
                 <div className="col-lg-12">
                   <div className="form-group">
-                    <label>Phone</label>
+                    <label>Age</label>
                     <input
                       name="age"
                       id="age"
