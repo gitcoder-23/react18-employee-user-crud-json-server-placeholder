@@ -56,9 +56,7 @@ const DummyUserAddModal = ({
       setUserDatas([...userDatas, newFormValue]);
       setSuccess(true);
       setAddMessage('User created!');
-      toast.success('User added success!', {
-        position: toast.POSITION.TOP_RIGHT,
-      });
+
       setTimeout(() => {
         setAddUserForm({
           firstName: '',

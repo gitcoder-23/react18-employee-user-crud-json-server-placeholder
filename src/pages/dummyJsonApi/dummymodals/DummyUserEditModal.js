@@ -48,9 +48,6 @@ const DummyUserEditModal = ({
     setUserDatas([...updateUser]);
     setSuccess(true);
 
-    toast.success('User edited success!', {
-      position: toast.POSITION.TOP_RIGHT,
-    });
     setEditMessage('Form edited success!');
     setTimeout(() => {
       setEditUsersForm({
