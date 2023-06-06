@@ -4,7 +4,6 @@ import DummyListData from './DummyListData';
 import DummyUserViewModal from './dummymodals/DummyUserViewModal';
 import DummyUserEditModal from './dummymodals/DummyUserEditModal';
 import DummyUserAddModal from './dummymodals/DummyUserAddModal';
-import { toast } from 'react-toastify';
 
 const DummyUserList = () => {
   const [userDatas, setUserDatas] = useState([] || null);
