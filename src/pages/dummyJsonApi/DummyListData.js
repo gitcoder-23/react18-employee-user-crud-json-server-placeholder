@@ -26,7 +26,7 @@ const DummyListData = ({
             {user.firstName} {user.lastName}
           </td>
           <td>{user.age}</td>
-          <td>{user.gender}</td>
+          {/* <td>{user.gender}</td> */}
 
           <td>{user.email}</td>
           <td>{user.phone}</td>
@@ -39,7 +39,7 @@ const DummyListData = ({
             >
               View
             </button>{' '}
-            {/* &nbsp;
+            &nbsp;
             <button
               onClick={() => editButtonClick(user)}
               type="button"
@@ -47,7 +47,7 @@ const DummyListData = ({
             >
               Edit
             </button>{' '}
-            &nbsp; */}
+            &nbsp;
             {/* <button
               onClick={() => deleteUser(user.id)}
               type="button"

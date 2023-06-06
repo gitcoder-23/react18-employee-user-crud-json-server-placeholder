@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import DummyListData from './DummyListData';
 import DummyUserViewModal from './dummymodals/DummyUserViewModal';
+import DummyUserEditModal from './dummymodals/DummyUserEditModal';
 
 const DummyUserList = () => {
   const [userDatas, setUserDatas] = useState([] || null);
@@ -11,14 +12,23 @@ const DummyUserList = () => {
   const [viewModalShow, setViewModalShow] = useState(false);
   const [viewUserData, setViewUserDara] = useState({} || null);
   const [editModalShow, setEditModalShow] = useState(false);
-  const [editUserData, setEditUserDara] = useState({});
+  const [editUserData, setEditUserData] = useState({});
+
+  const [editUsersForm, setEditUsersForm] = useState({
+    id: null,
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    age: null,
+  });
 
   const getAllUser = () => {
     setIsLoading(true);
     axios
       .get('https://dummyjson.com/users')
       .then((response) => {
-        console.log('dummy-response-->', response);
+        // console.log('dummy-response-->', response);
         if (response.status === 200) {
           if (response.data.users.length === 0) {
             setIsLoading(false);
@@ -45,6 +55,23 @@ const DummyUserList = () => {
     setViewModalShow(true);
   };
 
+  const editButtonClick = (userData) => {
+    console.log('userData-->', userData);
+    setEditUserData(userData);
+    setEditModalShow(true);
+  };
+
+  useEffect(() => {
+    setEditUsersForm({
+      id: editUserData?.id,
+      firstName: editUserData?.firstName,
+      lastName: editUserData?.lastName,
+      email: editUserData?.email,
+      phone: editUserData?.phone,
+      age: editUserData?.age,
+    });
+  }, [editUserData]);
+
   return (
     <div className="container">
       <DummyUserViewModal
@@ -52,6 +79,17 @@ const DummyUserList = () => {
         viewUserData={viewUserData}
         setViewModalShow={setViewModalShow}
       />
+
+      <DummyUserEditModal
+        editModalShow={editModalShow}
+        setEditModalShow={setEditModalShow}
+        editUserData={editUserData}
+        setEditUsersForm={setEditUsersForm}
+        editUsersForm={editUsersForm}
+        userDatas={userDatas}
+        setUserDatas={setUserDatas}
+      />
+
       <div className="card">
         <div className="card-title">
           <h1>
@@ -82,7 +120,7 @@ const DummyUserList = () => {
                     <td>Employee Image</td>
                     <td>Employee Name</td>
                     <td>Age</td>
-                    <td>Gender</td>
+                    {/* <td>Gender</td> */}
                     <td>Email</td>
                     <td>Phone</td>
                     <td colSpan={2}>Action</td>
@@ -97,7 +135,7 @@ const DummyUserList = () => {
                         key={user.id}
                         // deleteUser={deleteUser}
                         loadUserDetail={loadUserDetail}
-                        // editButtonClick={editButtonClick}
+                        editButtonClick={editButtonClick}
                       />
                     );
                   })}
