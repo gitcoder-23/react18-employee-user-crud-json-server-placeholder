@@ -14,6 +14,9 @@ const DummyUserList = () => {
   const [addModalShow, setAddModalShow] = useState(false);
   const [editModalShow, setEditModalShow] = useState(false);
   const [editUserData, setEditUserData] = useState({});
+  // Search
+  const [search, setSearch] = useState('');
+  const [query, setQuery] = useState('');
 
   const [editUsersForm, setEditUsersForm] = useState({
     id: null,
@@ -86,6 +89,21 @@ const DummyUserList = () => {
     });
   }, [editUserData]);
 
+  // Search
+  const getSearch = (e) => {
+    e.preventDefault();
+    setQuery(search);
+    // to reset after search button click
+    setSearch('');
+  };
+
+  const updateSearch = (evt) => {
+    setSearch(evt.target.value);
+  };
+
+  console.log('query-->', query);
+  console.log('userDatas-->', userDatas);
+
   return (
     <div className="container">
       <DummyUserViewModal
@@ -124,6 +142,39 @@ const DummyUserList = () => {
               Add New (+)
             </button>
           </h1>
+
+          {/* Search Start */}
+          <div className="col-md-5">
+            <form onSubmit={getSearch} className="search-form">
+              <input
+                class="form-control me-sm-2"
+                placeholder="Search department"
+                style={{
+                  height: '35px',
+                  display: 'initial',
+                  padding: '0 5px',
+                  width: '70%',
+                  fontSize: '14px',
+                }}
+                type="text"
+                value={search}
+                onChange={updateSearch}
+              />
+
+              <button
+                class="btn btn-primary my-2 my-sm-0"
+                style={{
+                  height: '35px',
+                  padding: '0 5px',
+                  width: '20%',
+                }}
+                type="submit"
+              >
+                Reset
+              </button>
+            </form>
+          </div>
+          {/* Search End */}
           <div className="card-body">
             {isLoading ? (
               <h2>Data is loading..</h2>
@@ -148,19 +199,49 @@ const DummyUserList = () => {
                   </tr>
                 </thead>
 
+                {/* {userDatas &&
+                  (userDatas || [])?.map((user, index) => { */}
+
                 {userDatas &&
-                  (userDatas || [])?.map((user, index) => {
-                    return (
-                      <DummyListData
-                        user={user}
-                        key={user.id}
-                        index={index}
-                        deleteUser={deleteUser}
-                        loadUserDetail={loadUserDetail}
-                        editButtonClick={editButtonClick}
-                      />
-                    );
-                  })}
+                  (userDatas || [])
+                    .filter((val) => {
+                      console.log('val-->', val);
+                      if (search === '') {
+                        return val;
+                      } else if (
+                        val.firstName
+                          .toLowerCase()
+                          .includes(search.toLowerCase())
+                      ) {
+                        return val;
+                      } else if (
+                        val.lastName
+                          .toLowerCase()
+                          .includes(search.toLowerCase())
+                      ) {
+                        return val;
+                      } else if (
+                        val.email.toLowerCase().includes(search.toLowerCase())
+                      ) {
+                        return val;
+                      } else if (val.search) {
+                        return val;
+                      }
+                    })
+                    ?.map((user, index) => {
+                      return (
+                        <>
+                          <DummyListData
+                            user={user}
+                            key={user.id}
+                            index={index}
+                            deleteUser={deleteUser}
+                            loadUserDetail={loadUserDetail}
+                            editButtonClick={editButtonClick}
+                          />
+                        </>
+                      );
+                    })}
               </table>
             )}
           </div>
