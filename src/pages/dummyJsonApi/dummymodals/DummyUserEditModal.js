@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import ButtonComponent from '../../../components/ButtonConponent';
 
 const DummyUserEditModal = ({
   userDatas,
@@ -219,12 +220,16 @@ const DummyUserEditModal = ({
             {editMessage}
           </h3>
         )}
-        <Button variant="secondary" onClick={() => setEditModalShow(false)}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleEditsubmit}>
-          Submit
-        </Button>
+        <ButtonComponent
+          variant="secondary"
+          buttonName="Close"
+          onClickEvent={() => setEditModalShow(false)}
+        />
+        <ButtonComponent
+          variant="warning"
+          buttonName="Edit"
+          onClickEvent={handleEditsubmit}
+        />
       </Modal.Footer>
     </Modal>
   );

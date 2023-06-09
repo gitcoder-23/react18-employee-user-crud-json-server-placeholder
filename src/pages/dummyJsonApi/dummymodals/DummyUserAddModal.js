@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
+import ButtonComponent from '../../../components/ButtonConponent';
 
 const DummyUserAddModal = ({
   addModalShow,
@@ -71,6 +72,10 @@ const DummyUserAddModal = ({
     }
   };
   console.log('gender-->', addUserForm?.gender);
+
+  const modalVisibility = () => {
+    setAddModalShow(false);
+  };
   return (
     <Modal
       show={addModalShow}
@@ -185,12 +190,16 @@ const DummyUserAddModal = ({
             {addMessage}
           </h3>
         )}
-        <Button variant="secondary" onClick={() => setAddModalShow(false)}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={submitClick}>
-          Submit
-        </Button>
+        <ButtonComponent
+          variant="secondary"
+          buttonName="Close"
+          onClickEvent={modalVisibility}
+        />
+        <ButtonComponent
+          variant="primary"
+          buttonName="Save"
+          onClickEvent={submitClick}
+        />
       </Modal.Footer>
     </Modal>
   );
