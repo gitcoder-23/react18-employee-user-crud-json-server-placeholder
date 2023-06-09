@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { toast } from 'react-toastify';
 
 const DummyUserEditModal = ({
   userDatas,
