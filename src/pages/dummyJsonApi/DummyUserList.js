@@ -33,7 +33,7 @@ const DummyUserList = () => {
     axios
       .get('https://dummyjson.com/users')
       .then((response) => {
-        console.log('dummy-response-->', response.data);
+        // console.log('dummy-response-->', response.data);
         if (response.status === 200) {
           if (response.data.users.length === 0) {
             setIsLoading(false);
@@ -86,6 +86,7 @@ const DummyUserList = () => {
       email: editUserData?.email,
       phone: editUserData?.phone,
       age: editUserData?.age,
+      gender: editUserData?.gender,
     });
   }, [editUserData]);
 
@@ -101,7 +102,7 @@ const DummyUserList = () => {
     setSearch(evt.target.value);
   };
 
-  console.log('query-->', query);
+  // console.log('query-->', query);
   console.log('userDatas-->', userDatas);
 
   return (
@@ -205,7 +206,7 @@ const DummyUserList = () => {
                 {userDatas &&
                   (userDatas || [])
                     .filter((val) => {
-                      console.log('val-->', val);
+                      // console.log('val-->', val);
                       if (search === '') {
                         return val;
                       } else if (

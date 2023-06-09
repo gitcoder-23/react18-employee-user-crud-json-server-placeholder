@@ -17,11 +17,29 @@ const DummyUserEditModal = ({
 
   const [success, setSuccess] = useState(false);
 
-  const genderData = {
-    male: 'Male',
-    female: 'Female',
-    others: 'Others',
-  };
+  // const genderData = {
+  //   male: 'Male',
+  //   female: 'Female',
+  //   others: 'Others',
+  // };
+
+  const genderData = [
+    {
+      id: 1,
+      value: 'male',
+      label: 'Male',
+    },
+    {
+      id: 2,
+      value: 'female',
+      label: 'Female',
+    },
+    {
+      id: 3,
+      value: 'others',
+      label: 'Others',
+    },
+  ];
 
   useEffect(() => {}, [editUsersForm, userDatas]);
 
@@ -50,14 +68,6 @@ const DummyUserEditModal = ({
 
     setEditMessage('Form edited success!');
     setTimeout(() => {
-      setEditUsersForm({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        age: null,
-        gender: '',
-      });
       setEditMessage('');
       setEditModalShow(false);
     }, 1000);
@@ -139,7 +149,20 @@ const DummyUserEditModal = ({
                       defaultValue={editUserData?.gender}
                       onChange={(e) => onTextFieldChange(e)}
                     >
-                      {Object.keys(genderData).map((gData) => {
+                      <option value="">--Select option--</option>
+
+                      {genderData &&
+                        genderData.map((gen, i) => (
+                          <option
+                            value={gen.value}
+                            key={i}
+                            selected={editUserData.gender === gen.id}
+                          >
+                            {gen.label}
+                          </option>
+                        ))}
+
+                      {/* {Object.keys(genderData).map((gData) => {
                         console.log(gData);
                         return (
                           <option value={gData} name={gData}>
@@ -150,7 +173,7 @@ const DummyUserEditModal = ({
                               : 'Others'}
                           </option>
                         );
-                      })}
+                      })} */}
                     </select>
                   </div>
                 </div>
