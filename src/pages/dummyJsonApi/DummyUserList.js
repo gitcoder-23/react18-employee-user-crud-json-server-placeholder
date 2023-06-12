@@ -148,7 +148,7 @@ const DummyUserList = () => {
           <div className="col-md-5">
             <form onSubmit={getSearch} className="search-form">
               <input
-                class="form-control me-sm-2"
+                className="form-control me-sm-2"
                 placeholder="Search department"
                 style={{
                   height: '35px',
@@ -163,7 +163,7 @@ const DummyUserList = () => {
               />
 
               <button
-                class="btn btn-primary my-2 my-sm-0"
+                className="btn btn-primary my-2 my-sm-0"
                 style={{
                   height: '35px',
                   padding: '0 5px',
