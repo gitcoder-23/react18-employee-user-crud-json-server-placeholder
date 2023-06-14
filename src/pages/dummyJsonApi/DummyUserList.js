@@ -14,6 +14,7 @@ const DummyUserList = () => {
   const [addModalShow, setAddModalShow] = useState(false);
   const [editModalShow, setEditModalShow] = useState(false);
   const [editUserData, setEditUserData] = useState({});
+  const [storeData, setStoreData] = useState([]);
   // Search
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('');
@@ -61,7 +62,7 @@ const DummyUserList = () => {
   };
 
   const editButtonClick = (userData) => {
-    console.log('userData-->', userData);
+    // console.log('userData-->', userData);
     setEditUserData(userData);
     setEditModalShow(true);
   };
@@ -102,8 +103,14 @@ const DummyUserList = () => {
     setSearch(evt.target.value);
   };
 
-  // console.log('query-->', query);
-  console.log('userDatas-->', userDatas);
+  const dataStore = (dItem) => {
+    console.log('dItem-->', dItem);
+    if (storeData.indexOf(dItem) !== -1) return;
+    setStoreData([...storeData, dItem]);
+  };
+
+  console.log('storeData-->', storeData);
+  // console.log('userDatas-->', userDatas);
 
   return (
     <div className="container">
@@ -239,6 +246,7 @@ const DummyUserList = () => {
                             deleteUser={deleteUser}
                             loadUserDetail={loadUserDetail}
                             editButtonClick={editButtonClick}
+                            dataStore={dataStore}
                           />
                         </>
                       );

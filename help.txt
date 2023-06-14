@@ -31,3 +31,7 @@ https://www.freecodecamp.org/news/how-to-perform-crud-operations-using-react/
 
 // url
 https://react18-employee-user-crud-json-server-placeholder.vercel.app/#/dummyuserlist
+
+
+/// ADD & Delete & Total Price Of Product
+https://stackoverflow.com/questions/71923595/how-can-i-add-the-item-to-cart-page-in-react

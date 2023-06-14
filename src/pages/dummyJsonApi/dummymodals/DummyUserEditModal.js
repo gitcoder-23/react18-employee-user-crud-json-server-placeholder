@@ -11,7 +11,7 @@ const DummyUserEditModal = ({
   editUsersForm,
   setUserDatas,
 }) => {
-  console.log('editUserData-->', editUserData);
+  // console.log('editUserData-->', editUserData);
   const [editMessage, setEditMessage] = useState('');
   const [edId, setEdId] = useState(null);
 

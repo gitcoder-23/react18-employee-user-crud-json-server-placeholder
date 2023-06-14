@@ -6,6 +6,7 @@ const DummyListData = ({
   loadUserDetail,
   editButtonClick,
   index,
+  dataStore,
 }) => {
   return (
     <>
@@ -55,6 +56,14 @@ const DummyListData = ({
               className="btn btn-danger"
             >
               Delete
+            </button>{' '}
+            &nbsp;
+            <button
+              onClick={() => dataStore(user)}
+              type="button"
+              className="btn btn-primary"
+            >
+              Data Store Arrey
             </button>
           </td>
         </tr>

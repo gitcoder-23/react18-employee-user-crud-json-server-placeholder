@@ -71,7 +71,7 @@ const DummyUserAddModal = ({
       }, 2000);
     }
   };
-  console.log('gender-->', addUserForm?.gender);
+  // console.log('gender-->', addUserForm?.gender);
 
   const modalVisibility = () => {
     setAddModalShow(false);
