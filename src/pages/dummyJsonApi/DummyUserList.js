@@ -5,6 +5,8 @@ import DummyUserViewModal from './dummymodals/DummyUserViewModal';
 import DummyUserEditModal from './dummymodals/DummyUserEditModal';
 import DummyUserAddModal from './dummymodals/DummyUserAddModal';
 import DummySearch from './DummySearch';
+import { Button } from 'react-bootstrap';
+import DummyStoreEmployeeModal from './dummymodals/DummyStoreEmployeeModal';
 
 const DummyUserList = () => {
   const [userDatas, setUserDatas] = useState([] || null);
@@ -16,6 +18,8 @@ const DummyUserList = () => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [editUserData, setEditUserData] = useState({});
   const [storeData, setStoreData] = useState([]);
+
+  const [showEmpModal, setShowEmpModal] = useState(false);
   // Search
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('');
@@ -111,7 +115,10 @@ const DummyUserList = () => {
   };
 
   console.log('storeData-->', storeData);
-  // console.log('userDatas-->', userDatas);
+
+  const showEmployee = () => {
+    setShowEmpModal(true);
+  };
 
   return (
     <div className="container">
@@ -138,6 +145,13 @@ const DummyUserList = () => {
         setUserDatas={setUserDatas}
       />
 
+      <DummyStoreEmployeeModal
+        storeData={storeData}
+        setStoreData={setStoreData}
+        showEmpModal={showEmpModal}
+        setShowEmpModal={setShowEmpModal}
+      />
+
       <div className="card">
         <div className="card-title">
           <h1>
@@ -153,11 +167,24 @@ const DummyUserList = () => {
           </h1>
 
           {/* Search Start */}
-          <DummySearch
-            getSearch={getSearch}
-            search={search}
-            updateSearch={updateSearch}
-          />
+          <div className="row">
+            <div className="col-md-7">
+              <DummySearch
+                getSearch={getSearch}
+                search={search}
+                updateSearch={updateSearch}
+              />
+            </div>
+            <div className="col-md-5">
+              {storeData.length === 0 ? (
+                <Button variant="info">No Employee Selected</Button>
+              ) : (
+                <Button variant="info" onClick={showEmployee}>
+                  {storeData.length} Selected
+                </Button>
+              )}
+            </div>
+          </div>
           {/* Search End */}
           <div className="card-body">
             {isLoading ? (
