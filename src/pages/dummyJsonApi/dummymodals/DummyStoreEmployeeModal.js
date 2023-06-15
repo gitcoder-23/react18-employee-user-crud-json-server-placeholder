@@ -8,17 +8,9 @@ const DummyStoreEmployeeModal = ({
   showEmpModal,
   setShowEmpModal,
   setStoreData,
+  delEmployee,
+  clearAllStore,
 }) => {
-  const delEmployee = (delId) => {
-    console.log('delId->', delId);
-    if (window.confirm('Do you want?')) {
-      const removeUser = [...storeData].filter((uData, indx) => {
-        return uData.id !== delId;
-      });
-
-      setStoreData(removeUser);
-    }
-  };
   return (
     <Modal
       show={showEmpModal}
@@ -28,46 +20,61 @@ const DummyStoreEmployeeModal = ({
       aria-labelledby="contained-modal-title-vcenter"
     >
       <Modal.Header closeButton>
-        <Modal.Title>Selected Employee -- {storeData.length}</Modal.Title>
+        <Modal.Title>
+          Selected Employee -- {storeData.length}{' '}
+          {storeData.length >= 1 && (
+            <Button
+              variant="danger"
+              style={{ color: '#fff' }}
+              onClick={clearAllStore}
+            >
+              Remove All
+            </Button>
+          )}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Table striped bordered hover variant="dark">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Employee Name</th>
-              <th>Email</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          {storeData &&
-            storeData.map((sData, idx) => {
-              return (
-                <tbody>
-                  <tr>
-                    <td>{idx + 1}</td>
-                    <td>
-                      {sData.firstName} {sData.lastName}
-                    </td>
-                    <td>{sData.email}</td>
-                    <td>
-                      <Button
-                        variant="danger"
-                        onClick={() => delEmployee(sData.id)}
-                      >
-                        {' '}
-                        <CIcon
-                          icon={icon.cilTrash}
-                          size="l"
-                          style={{ color: '#fff' }}
-                        />
-                      </Button>
-                    </td>
-                  </tr>
-                </tbody>
-              );
-            })}
-        </Table>
+        {storeData.length === 0 ? (
+          <h2 style={{ textAlign: 'center' }}>No data found</h2>
+        ) : (
+          <Table striped bordered hover variant="dark">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            {storeData &&
+              storeData.map((sData, idx) => {
+                return (
+                  <tbody>
+                    <tr>
+                      <td>{idx + 1}</td>
+                      <td>
+                        {sData.firstName} {sData.lastName}
+                      </td>
+                      <td>{sData.email}</td>
+                      <td>
+                        <Button
+                          variant="danger"
+                          onClick={() => delEmployee(sData.id)}
+                        >
+                          {' '}
+                          <CIcon
+                            icon={icon.cilTrash}
+                            size="l"
+                            style={{ color: '#fff' }}
+                          />
+                        </Button>
+                      </td>
+                    </tr>
+                  </tbody>
+                );
+              })}
+          </Table>
+        )}
       </Modal.Body>
     </Modal>
   );

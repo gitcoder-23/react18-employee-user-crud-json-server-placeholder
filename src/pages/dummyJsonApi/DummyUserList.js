@@ -120,6 +120,24 @@ const DummyUserList = () => {
     setShowEmpModal(true);
   };
 
+  const delEmployee = (delId) => {
+    console.log('delId->', delId);
+    if (window.confirm('Do you want?')) {
+      const removeUser = [...storeData].filter((uData, indx) => {
+        return uData.id !== delId;
+      });
+
+      setStoreData(removeUser);
+    }
+  };
+
+  const clearAllStore = () => {
+    setStoreData([]);
+    setTimeout(() => {
+      setShowEmpModal(false);
+    }, 1000);
+  };
+
   return (
     <div className="container">
       <DummyUserViewModal
@@ -150,6 +168,8 @@ const DummyUserList = () => {
         setStoreData={setStoreData}
         showEmpModal={showEmpModal}
         setShowEmpModal={setShowEmpModal}
+        delEmployee={delEmployee}
+        clearAllStore={clearAllStore}
       />
 
       <div className="card">
@@ -177,7 +197,7 @@ const DummyUserList = () => {
             </div>
             <div className="col-md-5">
               {storeData.length === 0 ? (
-                <Button variant="info">No Employee Selected</Button>
+                <Button variant="secondary">No Employee Selected</Button>
               ) : (
                 <Button variant="info" onClick={showEmployee}>
                   {storeData.length} Selected
