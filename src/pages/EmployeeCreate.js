@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { rootApi } from '../config';
 import { ToastContainer, toast } from 'react-toastify';
+import Select from 'react-select';
+
 import ToastMessage from '../components/ToastMessage';
 
 const EmployeeCreate = () => {
@@ -18,13 +20,19 @@ const EmployeeCreate = () => {
     email: '',
     phone: '',
   });
+  const techOptions = [
+    { value: 'react', label: 'React' },
+    { value: 'angular', label: 'Angular' },
+    { value: 'node', label: 'Node' },
+  ];
+  const [technology, setTechnology] = useState([]);
 
   const onFieldChange = (e) => {
     setEmployeeForm({
       ...employeeForm,
       [e.target.name]: e.target.value,
     });
-    // console.log('onFieldChange', employeeForm);
+    console.log('onFieldChange', employeeForm);
   };
 
   // console.log('active', active);
@@ -33,7 +41,8 @@ const EmployeeCreate = () => {
     if (
       !employeeForm.employeename ||
       !employeeForm.email ||
-      !employeeForm.phone
+      !employeeForm.phone ||
+      technology.length === 0
       // active === false
     ) {
       setSuccess(false);
@@ -50,6 +59,7 @@ const EmployeeCreate = () => {
         employeename: employeeForm.employeename,
         email: employeeForm.email,
         phone: employeeForm.phone,
+        technology: technology,
         active: active,
       };
       console.log('formData->', formData);
@@ -109,6 +119,13 @@ const EmployeeCreate = () => {
       // })
     }
   };
+
+  const onChangeSelect = (option) => {
+    console.log('option->', option);
+    setTechnology([...option]);
+  };
+
+  console.log('technology-->', technology);
 
   return (
     <div className="container">
@@ -192,6 +209,36 @@ const EmployeeCreate = () => {
                         )}
                       </div>
                     </div>
+
+                    <div className="col-lg-12 mb-2">
+                      <div className="form-group multiselect_field">
+                        <div className="row">
+                          <label
+                            style={{
+                              float: 'left',
+                              marginBottom: '4px',
+                              textAlign: 'left',
+                            }}
+                          >
+                            Technology
+                          </label>{' '}
+                        </div>
+
+                        <Select
+                          isMulti
+                          name="technology"
+                          id="technology"
+                          // defaultValue={techOptions}
+                          options={techOptions}
+                          closeMenuOnSelect={false}
+                          className="basic-multi-select"
+                          classNamePrefix="select"
+                          // value={technology}
+                          onChange={(option) => onChangeSelect(option)}
+                        />
+                      </div>
+                    </div>
+
                     <div className="col-lg-12 mb-2">
                       <div className="form-check">
                         <input
@@ -241,8 +288,17 @@ const EmployeeCreate = () => {
           </div>
         </div>
       </div>
+      <style>{cssOps}</style>
     </div>
   );
 };
 
 export default EmployeeCreate;
+
+const cssOps = `
+
+.multiselect_field div#react-select-3-placeholder {
+  text-align: left
+}
+
+`;
