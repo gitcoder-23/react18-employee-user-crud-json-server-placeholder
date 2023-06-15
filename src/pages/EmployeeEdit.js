@@ -2,13 +2,17 @@ import axios from 'axios';
 import { rootApi } from '../config';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 const EmployeeEdit = () => {
+  const animatedComponents = makeAnimated();
   const { state } = useLocation();
   const { empId } = useParams();
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
-  // console.log('edit-eData=>', state?.singleUser);
+
+  console.log('edit-eData=>', state?.singleUser);
   const navigate = useNavigate();
   const [employeeEditForm, setEmployeeEditForm] = useState({
     id: state?.singleUser.id || '',
@@ -17,6 +21,9 @@ const EmployeeEdit = () => {
     phone: state?.singleUser.phone || '',
   });
   const [active, setActivechange] = useState(state?.singleUser.active || false);
+  const [selectedSkill, setSelectedSkill] = useState(
+    state?.singleUser.technology || []
+  );
 
   useEffect(() => {
     return () => {};
@@ -50,7 +57,8 @@ const EmployeeEdit = () => {
     if (
       !employeeEditForm.employeename ||
       !employeeEditForm.email ||
-      !employeeEditForm.phone
+      !employeeEditForm.phone ||
+      selectedSkill.length === 0
       // active === false
     ) {
       setSuccess(false);
@@ -63,6 +71,7 @@ const EmployeeEdit = () => {
         employeename: employeeEditForm.employeename,
         email: employeeEditForm.email,
         phone: employeeEditForm.phone,
+        technology: selectedSkill,
         active: active,
       };
       console.log('formData->', formData);
@@ -76,11 +85,6 @@ const EmployeeEdit = () => {
             setMessage('Form edited success!');
 
             setTimeout(() => {
-              setEmployeeEditForm({
-                employeename: '',
-                email: '',
-                phone: '',
-              });
               setActivechange(false);
               navigate('/');
             }, 1000);
@@ -100,7 +104,20 @@ const EmployeeEdit = () => {
     }
   };
 
-  // console.log('employeeEditForm-->', employeeEditForm);
+  const techOptions = [
+    { value: 'react', label: 'React' },
+    { value: 'angular', label: 'Angular' },
+    { value: 'node', label: 'Node' },
+  ];
+
+  const handleChange = (newSkill, actionMeta) => {
+    console.log('newSkill->', newSkill);
+
+    // to update data
+    setSelectedSkill(newSkill);
+  };
+
+  console.log('selectedSkill-->', selectedSkill);
   return (
     <div className="container">
       {' '}
@@ -161,6 +178,37 @@ const EmployeeEdit = () => {
                         onChange={(e) => onTextFieldChange(e)}
                         className="form-control"
                       ></input>
+                    </div>
+                  </div>
+
+                  <div className="col-lg-12 mb-2">
+                    <div className="form-group multiselect_field">
+                      <div className="row">
+                        <label
+                          style={{
+                            float: 'left',
+                            marginBottom: '4px',
+                            textAlign: 'left',
+                          }}
+                        >
+                          Technology
+                        </label>{' '}
+                      </div>
+
+                      <Select
+                        isMulti
+                        name="technology"
+                        id="technology"
+                        // defaultValue={techOptions}
+                        options={techOptions}
+                        placeholder="Add your skill"
+                        closeMenuOnSelect={true}
+                        className="basic-multi-select"
+                        classNamePrefix="select"
+                        value={selectedSkill}
+                        onChange={(option) => handleChange(option)}
+                        components={animatedComponents}
+                      />
                     </div>
                   </div>
 

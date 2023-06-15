@@ -1,7 +1,6 @@
 {
   "employees": [
     {
-      "id": "5dc2a99d-545e-4580-9733-0f7ede1c8ec3",
       "employeename": "Alita Watson",
       "email": "utest@yahoo.com",
       "phone": "98745468521",
@@ -11,14 +10,18 @@
           "label": "Angular"
         },
         {
+          "value": "node",
+          "label": "Node"
+        },
+        {
           "value": "react",
           "label": "React"
         }
       ],
-      "active": true
+      "active": true,
+      "id": "5dc2a99d-545e-4580-9733-0f7ede1c8ec3"
     },
     {
-      "id": "40e5a1ab-4d05-4512-bb13-bf6ce3995271",
       "employeename": "John Vogan1",
       "email": "john@yahoo.com",
       "phone": "98745468521",
@@ -26,17 +29,10 @@
         {
           "value": "node",
           "label": "Node"
-        },
-        {
-          "value": "angular",
-          "label": "Angular"
-        },
-        {
-          "value": "react",
-          "label": "React"
         }
       ],
-      "active": false
+      "active": false,
+      "id": "40e5a1ab-4d05-4512-bb13-bf6ce3995271"
     }
   ]
 }

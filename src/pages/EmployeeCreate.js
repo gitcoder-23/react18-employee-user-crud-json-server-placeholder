@@ -5,11 +5,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { rootApi } from '../config';
 import { ToastContainer, toast } from 'react-toastify';
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 import ToastMessage from '../components/ToastMessage';
 
 const EmployeeCreate = () => {
   const navigate = useNavigate();
+  const animatedComponents = makeAnimated();
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
   const [active, setActivechange] = useState(false);
@@ -230,11 +232,13 @@ const EmployeeCreate = () => {
                           id="technology"
                           // defaultValue={techOptions}
                           options={techOptions}
-                          closeMenuOnSelect={false}
+                          placeholder="Add your skill"
+                          closeMenuOnSelect={true}
                           className="basic-multi-select"
                           classNamePrefix="select"
                           // value={technology}
                           onChange={(option) => onChangeSelect(option)}
+                          components={animatedComponents}
                         />
                       </div>
                     </div>
