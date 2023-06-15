@@ -4,6 +4,7 @@ import DummyListData from './DummyListData';
 import DummyUserViewModal from './dummymodals/DummyUserViewModal';
 import DummyUserEditModal from './dummymodals/DummyUserEditModal';
 import DummyUserAddModal from './dummymodals/DummyUserAddModal';
+import DummySearch from './DummySearch';
 
 const DummyUserList = () => {
   const [userDatas, setUserDatas] = useState([] || null);
@@ -140,7 +141,7 @@ const DummyUserList = () => {
       <div className="card">
         <div className="card-title">
           <h1>
-            User List{' '}
+            Employee List{' '}
             <button
               onClick={() => setAddModalShow(true)}
               className="btn btn-success"
@@ -152,36 +153,11 @@ const DummyUserList = () => {
           </h1>
 
           {/* Search Start */}
-          <div className="col-md-5">
-            <form onSubmit={getSearch} className="search-form">
-              <input
-                className="form-control me-sm-2"
-                placeholder="Search department"
-                style={{
-                  height: '35px',
-                  display: 'initial',
-                  padding: '0 5px',
-                  width: '70%',
-                  fontSize: '14px',
-                }}
-                type="text"
-                value={search}
-                onChange={updateSearch}
-              />
-
-              <button
-                className="btn btn-primary my-2 my-sm-0"
-                style={{
-                  height: '35px',
-                  padding: '0 5px',
-                  width: '20%',
-                }}
-                type="submit"
-              >
-                Reset
-              </button>
-            </form>
-          </div>
+          <DummySearch
+            getSearch={getSearch}
+            search={search}
+            updateSearch={updateSearch}
+          />
           {/* Search End */}
           <div className="card-body">
             {isLoading ? (
