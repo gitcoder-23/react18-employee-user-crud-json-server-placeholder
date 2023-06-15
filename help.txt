@@ -35,3 +35,7 @@ https://react18-employee-user-crud-json-server-placeholder.vercel.app/#/dummyuse
 
 /// ADD & Delete & Total Price Of Product
 https://stackoverflow.com/questions/71923595/how-can-i-add-the-item-to-cart-page-in-react
+
+
+// React Select
+https://react-select.com/home
