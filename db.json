@@ -1,83 +1,6 @@
 {
   "employees": [
     {
-      "employeename": "Clementine Bauch",
-      "email": "Nathan@yesenia.net",
-      "phone": "1-463-123-4447",
-      "active": false,
-      "id": 1
-    },
-    {
-      "employeename": "Patricia Lebsack",
-      "email": "Julianne.OConner@kory.org",
-      "phone": "493-170-9623 x156",
-      "active": true,
-      "id": 2
-    },
-    {
-      "employeename": "Chelsey Dietrich",
-      "email": "Lucio_Hettinger@annie.ca",
-      "phone": "(254)954-1289",
-      "active": true,
-      "id": 3
-    },
-    {
-      "id": 5,
-      "employeename": "Kurtis Weissnat",
-      "username": "Elwyn.Skiles",
-      "email": "Telly.Hoeger@billy.biz",
-      "address": {
-        "street": "Rex Trail",
-        "suite": "Suite 280",
-        "city": "Howemouth",
-        "zipcode": "58804-1099",
-        "geo": {
-          "lat": "24.8918",
-          "lng": "21.8984"
-        }
-      },
-      "phone": "210.067.6132",
-      "website": "elvis.io",
-      "company": {
-        "employeename": "Johns Group",
-        "catchPhrase": "Configurable multimedia task-force",
-        "bs": "generate enterprise e-tailers"
-      }
-    },
-    {
-      "employeename": "Michel Shene",
-      "email": "mike@codename.com",
-      "phone": "7894-5284-12",
-      "active": false,
-      "id": 6
-    },
-    {
-      "id": "ac8cd21a-cf33-4f7c-a7af-7b791b8c8f1d",
-      "employeename": "Ram Gopal Verma",
-      "email": "ramverma@yahoo.com",
-      "phone": "7894568574"
-    },
-    {
-      "id": "1b7625c1-2fd4-4faa-9cc0-795a68c20554",
-      "employeename": "Ram Mohan Ray",
-      "email": "rmohan@gmail.com",
-      "phone": "98945685741"
-    },
-    {
-      "employeename": "Niraj Modi",
-      "email": "niraj@yahoo.com",
-      "phone": "9875641258",
-      "active": true,
-      "id": 9
-    },
-    {
-      "id": "612fa411-5670-4c38-8e84-03e544572eb0",
-      "employeename": "Krishna Jain",
-      "email": "kjain@yahoo.com",
-      "phone": "8894561235",
-      "active": true
-    },
-    {
       "id": "5dc2a99d-545e-4580-9733-0f7ede1c8ec3",
       "employeename": "Alita Watson",
       "email": "utest@yahoo.com",
@@ -93,6 +16,27 @@
         }
       ],
       "active": true
+    },
+    {
+      "id": "40e5a1ab-4d05-4512-bb13-bf6ce3995271",
+      "employeename": "John Vogan1",
+      "email": "john@yahoo.com",
+      "phone": "98745468521",
+      "technology": [
+        {
+          "value": "node",
+          "label": "Node"
+        },
+        {
+          "value": "angular",
+          "label": "Angular"
+        },
+        {
+          "value": "react",
+          "label": "React"
+        }
+      ],
+      "active": false
     }
   ]
 }
