@@ -50,6 +50,27 @@
       ],
       "active": true,
       "id": "9775e298-308d-47ad-a0d0-2e27c1126f26"
+    },
+    {
+      "employeename": "Krishna",
+      "email": "test@test.com",
+      "phone": "7894561258",
+      "technology": [
+        {
+          "value": "angular",
+          "label": "Angular"
+        },
+        {
+          "value": "node",
+          "label": "Node"
+        },
+        {
+          "value": "react",
+          "label": "React"
+        }
+      ],
+      "active": true,
+      "id": "4080df59-d2a2-4309-abeb-ea20d3df3843"
     }
   ]
 }
