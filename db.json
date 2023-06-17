@@ -115,6 +115,25 @@
       "gender": "others",
       "active": true,
       "id": "1575ee71-ad79-48b2-8fe2-5e74eaaacf93"
+    },
+    {
+      "employeename": "Bagar Billa",
+      "email": "bagar@gmail.com",
+      "phone": "7894561258",
+      "technology": [
+        {
+          "value": "angular",
+          "label": "Angular"
+        },
+        {
+          "value": "react",
+          "label": "React"
+        }
+      ],
+      "gender": "male",
+      "emp_detail": "Billa Name Bagar",
+      "active": true,
+      "id": "e01aca11-b01e-49d1-9894-b5832ed5c269"
     }
   ]
 }

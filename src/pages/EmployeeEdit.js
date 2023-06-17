@@ -20,6 +20,7 @@ const EmployeeEdit = () => {
     email: state?.singleUser.email || '',
     phone: state?.singleUser.phone || '',
     gender: state?.singleUser.gender || '',
+    emp_detail: state?.singleUser.emp_detail || '',
   });
   const [active, setActivechange] = useState(state?.singleUser.active || false);
   const [selectedSkill, setSelectedSkill] = useState(
@@ -78,7 +79,9 @@ const EmployeeEdit = () => {
       !employeeEditForm.email ||
       !employeeEditForm.phone ||
       !employeeEditForm.gender ||
-      selectedSkill.length === 0
+      selectedSkill.length === 0 ||
+      !employeeEditForm.emp_detail
+
       // active === false
     ) {
       setSuccess(false);
@@ -93,9 +96,10 @@ const EmployeeEdit = () => {
         phone: employeeEditForm.phone,
         technology: selectedSkill,
         gender: employeeEditForm.gender,
+        emp_detail: employeeEditForm.emp_detail,
         active: active,
       };
-      console.log('formData->', formData);
+      // console.log('formData->', formData);
 
       axios
         .put(`${rootApi}/employees/${empId}`, formData)
@@ -255,6 +259,30 @@ const EmployeeEdit = () => {
                         value={selectedSkill}
                         onChange={(option) => handleChange(option)}
                         components={animatedComponents}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="col-lg-12 mb-2">
+                    <div className="form-group">
+                      <div className="row">
+                        <label
+                          style={{
+                            float: 'left',
+                            marginBottom: '4px',
+                            textAlign: 'left',
+                          }}
+                        >
+                          Employee Details
+                        </label>{' '}
+                      </div>
+
+                      <textarea
+                        className="form-control"
+                        name="emp_detail"
+                        id="emp_detail"
+                        value={employeeEditForm?.emp_detail}
+                        onChange={(e) => onTextFieldChange(e)}
                       />
                     </div>
                   </div>
