@@ -22,6 +22,7 @@ const EmployeeCreate = () => {
     email: '',
     phone: '',
     gender: '',
+    emp_detail: '',
   });
   const techOptions = [
     { value: 'react', label: 'React' },
@@ -35,7 +36,7 @@ const EmployeeCreate = () => {
       ...employeeForm,
       [e.target.name]: e.target.value,
     });
-    console.log('onFieldChange', employeeForm);
+    // console.log('onFieldChange', employeeForm);
   };
 
   // console.log('active', active);
@@ -46,7 +47,8 @@ const EmployeeCreate = () => {
       !employeeForm.email ||
       !employeeForm.phone ||
       technology.length === 0 ||
-      !employeeForm.gender
+      !employeeForm.gender ||
+      !employeeForm.emp_detail
 
       // active === false
     ) {
@@ -66,9 +68,10 @@ const EmployeeCreate = () => {
         phone: employeeForm.phone,
         technology: technology,
         gender: employeeForm.gender,
+        emp_detail: employeeForm.emp_detail,
         active: active,
       };
-      console.log('formData->', formData);
+      // console.log('formData->', formData);
 
       axios
         .post(`${rootApi}/employees`, formData)
@@ -86,7 +89,10 @@ const EmployeeCreate = () => {
                 employeename: '',
                 email: '',
                 phone: '',
+                gender: '',
+                emp_detail: '',
               });
+              setTechnology([]);
               setActivechange(false);
               navigate('/');
             }, 1000);
@@ -127,11 +133,11 @@ const EmployeeCreate = () => {
   };
 
   const onChangeSelect = (option) => {
-    console.log('option->', option);
+    // console.log('option->', option);
     setTechnology([...option]);
   };
 
-  console.log('technology-->', technology);
+  // console.log('emp_detail-->', employeeForm.emp_detail);
 
   return (
     <div className="container">
@@ -225,6 +231,7 @@ const EmployeeCreate = () => {
                           className="form-control"
                           id="gender"
                           name="gender"
+                          value={employeeForm.gender}
                           onChange={(e) => onFieldChange(e)}
                         >
                           <option value="">---Select---</option>
@@ -259,9 +266,33 @@ const EmployeeCreate = () => {
                           closeMenuOnSelect={true}
                           className="basic-multi-select"
                           classNamePrefix="select"
-                          // value={technology}
+                          value={technology}
                           onChange={(option) => onChangeSelect(option)}
                           components={animatedComponents}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="col-lg-12 mb-2">
+                      <div className="form-group">
+                        <div className="row">
+                          <label
+                            style={{
+                              float: 'left',
+                              marginBottom: '4px',
+                              textAlign: 'left',
+                            }}
+                          >
+                            Employee Details
+                          </label>{' '}
+                        </div>
+
+                        <textarea
+                          className="form-control"
+                          name="emp_detail"
+                          id="emp_detail"
+                          value={employeeForm.emp_detail}
+                          onChange={(e) => onFieldChange(e)}
                         />
                       </div>
                     </div>
