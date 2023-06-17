@@ -39,3 +39,10 @@ https://stackoverflow.com/questions/71923595/how-can-i-add-the-item-to-cart-page
 
 // React Select
 https://react-select.com/home
+
+
+
+
+
+// React editors
+https://blog.logrocket.com/best-text-editors-react/

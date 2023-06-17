@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@coreui/coreui/dist/css/coreui.min.css';
+import 'react-quill/dist/quill.snow.css';
 
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 
