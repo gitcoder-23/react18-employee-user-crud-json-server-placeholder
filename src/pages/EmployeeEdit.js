@@ -23,6 +23,11 @@ const EmployeeEdit = () => {
     emp_detail: state?.singleUser.emp_detail || '',
   });
   const [active, setActivechange] = useState(state?.singleUser.active || false);
+
+  const [editPerformance, setEditPerformance] = useState(
+    state?.singleUser.performance || 'good'
+  );
+
   const [selectedSkill, setSelectedSkill] = useState(
     state?.singleUser.technology || []
   );
@@ -97,6 +102,7 @@ const EmployeeEdit = () => {
         technology: selectedSkill,
         gender: employeeEditForm.gender,
         emp_detail: employeeEditForm.emp_detail,
+        performance: editPerformance,
         active: active,
       };
       // console.log('formData->', formData);
@@ -142,7 +148,11 @@ const EmployeeEdit = () => {
     setSelectedSkill(newSkill);
   };
 
-  console.log('selectedSkill-->', selectedSkill);
+  const onRadioChange = (radioVal) => {
+    setEditPerformance(radioVal.target.value);
+  };
+
+  // console.log('editPerformance', editPerformance);
   return (
     <div className="container">
       {' '}
@@ -260,6 +270,49 @@ const EmployeeEdit = () => {
                         onChange={(option) => handleChange(option)}
                         components={animatedComponents}
                       />
+                    </div>
+                  </div>
+
+                  <div className="col-lg-12 mb-2">
+                    <div className="form-group">
+                      <div className="row">
+                        <label
+                          style={{
+                            float: 'left',
+                            marginBottom: '4px',
+                            textAlign: 'left',
+                          }}
+                        >
+                          Employee Performance
+                        </label>{' '}
+                      </div>
+                      <div className="pr_class" style={{ textAlign: 'left' }}>
+                        {' '}
+                        Good{' '}
+                        <input
+                          type="radio"
+                          name="performance"
+                          value="good"
+                          onChange={(e) => onRadioChange(e)}
+                          checked={editPerformance === 'good' ? true : false}
+                        />{' '}
+                        Better{' '}
+                        <input
+                          type="radio"
+                          name="performance"
+                          value="better"
+                          onChange={(e) => onRadioChange(e)}
+                          checked={editPerformance === 'better' ? true : false}
+                        />{' '}
+                        Best{' '}
+                        <input
+                          type="radio"
+                          name="performance"
+                          value="best"
+                          onChange={(e) => onRadioChange(e)}
+                          checked={editPerformance === 'best' ? true : false}
+                        />
+                      </div>
                     </div>
                   </div>
 
