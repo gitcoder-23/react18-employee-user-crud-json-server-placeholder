@@ -21,6 +21,7 @@ const EmployeeCreate = () => {
     employeename: '',
     email: '',
     phone: '',
+    gender: '',
   });
   const techOptions = [
     { value: 'react', label: 'React' },
@@ -44,7 +45,9 @@ const EmployeeCreate = () => {
       !employeeForm.employeename ||
       !employeeForm.email ||
       !employeeForm.phone ||
-      technology.length === 0
+      technology.length === 0 ||
+      !employeeForm.gender
+
       // active === false
     ) {
       setSuccess(false);
@@ -62,6 +65,7 @@ const EmployeeCreate = () => {
         email: employeeForm.email,
         phone: employeeForm.phone,
         technology: technology,
+        gender: employeeForm.gender,
         active: active,
       };
       console.log('formData->', formData);
@@ -209,6 +213,25 @@ const EmployeeCreate = () => {
                             <span className="text-danger">Enter email</span>
                           </div>
                         )}
+                      </div>
+                    </div>
+
+                    <div className="col-lg-12 mb-2">
+                      <div className="form-group">
+                        <label style={{ float: 'left', marginBottom: '4px' }}>
+                          Gender
+                        </label>
+                        <select
+                          className="form-control"
+                          id="gender"
+                          name="gender"
+                          onChange={(e) => onFieldChange(e)}
+                        >
+                          <option value="">---Select---</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                          <option value="others">Others</option>
+                        </select>
                       </div>
                     </div>
 

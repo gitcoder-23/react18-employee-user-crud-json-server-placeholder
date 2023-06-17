@@ -18,6 +18,7 @@
           "label": "React"
         }
       ],
+      "gender": "female",
       "active": true,
       "id": "5dc2a99d-545e-4580-9733-0f7ede1c8ec3"
     },
@@ -31,6 +32,7 @@
           "label": "Node"
         }
       ],
+      "gender": "male",
       "active": false,
       "id": "40e5a1ab-4d05-4512-bb13-bf6ce3995271"
     },
@@ -48,6 +50,7 @@
           "label": "Node"
         }
       ],
+      "gender": "male",
       "active": true,
       "id": "9775e298-308d-47ad-a0d0-2e27c1126f26"
     },
@@ -69,8 +72,49 @@
           "label": "React"
         }
       ],
+      "gender": "male",
       "active": true,
       "id": "4080df59-d2a2-4309-abeb-ea20d3df3843"
+    },
+    {
+      "employeename": "Krishna Jain1",
+      "email": "test@test.com",
+      "phone": "7894561258",
+      "technology": [
+        {
+          "value": "react",
+          "label": "React"
+        },
+        {
+          "value": "node",
+          "label": "Node"
+        }
+      ],
+      "gender": "female",
+      "active": false,
+      "id": "36fb6a4e-3f42-466d-8d77-624efd20f828"
+    },
+    {
+      "employeename": "Krishna Jain",
+      "email": "test@test.com",
+      "phone": "9894561258",
+      "technology": [
+        {
+          "value": "react",
+          "label": "React"
+        },
+        {
+          "value": "node",
+          "label": "Node"
+        },
+        {
+          "value": "angular",
+          "label": "Angular"
+        }
+      ],
+      "gender": "others",
+      "active": true,
+      "id": "1575ee71-ad79-48b2-8fe2-5e74eaaacf93"
     }
   ]
 }

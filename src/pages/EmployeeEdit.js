@@ -19,6 +19,7 @@ const EmployeeEdit = () => {
     employeename: state?.singleUser.employeename || '',
     email: state?.singleUser.email || '',
     phone: state?.singleUser.phone || '',
+    gender: state?.singleUser.gender || '',
   });
   const [active, setActivechange] = useState(state?.singleUser.active || false);
   const [selectedSkill, setSelectedSkill] = useState(
@@ -28,6 +29,24 @@ const EmployeeEdit = () => {
   useEffect(() => {
     return () => {};
   }, [state?.singleUser, empId]);
+
+  const genderData = [
+    {
+      id: 1,
+      value: 'male',
+      label: 'Male',
+    },
+    {
+      id: 2,
+      value: 'female',
+      label: 'Female',
+    },
+    {
+      id: 3,
+      value: 'others',
+      label: 'Others',
+    },
+  ];
 
   // const getStudent = async () => {
   //   try {
@@ -58,6 +77,7 @@ const EmployeeEdit = () => {
       !employeeEditForm.employeename ||
       !employeeEditForm.email ||
       !employeeEditForm.phone ||
+      !employeeEditForm.gender ||
       selectedSkill.length === 0
       // active === false
     ) {
@@ -72,6 +92,7 @@ const EmployeeEdit = () => {
         email: employeeEditForm.email,
         phone: employeeEditForm.phone,
         technology: selectedSkill,
+        gender: employeeEditForm.gender,
         active: active,
       };
       console.log('formData->', formData);
@@ -178,6 +199,32 @@ const EmployeeEdit = () => {
                         onChange={(e) => onTextFieldChange(e)}
                         className="form-control"
                       ></input>
+                    </div>
+                  </div>
+
+                  <div className="col-lg-12">
+                    <div className="form-group">
+                      <label>Gender</label>
+                      <select
+                        className="form-control"
+                        id="gender"
+                        name="gender"
+                        value={employeeEditForm?.gender}
+                        onChange={(e) => onTextFieldChange(e)}
+                      >
+                        <option value="">--Select option--</option>
+
+                        {genderData &&
+                          genderData.map((gen, i) => (
+                            <option
+                              value={gen.value}
+                              key={i}
+                              // selected={employeeEditForm.gender === gen.id}
+                            >
+                              {gen.label}
+                            </option>
+                          ))}
+                      </select>
                     </div>
                   </div>
 

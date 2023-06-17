@@ -130,6 +130,7 @@ const EmployeeList = () => {
                     <td>Employee Name</td>
                     <td>Email</td>
                     <td>Phone</td>
+                    <td>Gender</td>
                     <td>Status</td>
                     <td colSpan={2}>Action</td>
                   </tr>
@@ -143,6 +144,7 @@ const EmployeeList = () => {
                         <td>{eData.employeename}</td>
                         <td>{eData.email}</td>
                         <td>{eData.phone}</td>
+                        <td>{eData.gender}</td>
                         <td>
                           <span
                             style={{
