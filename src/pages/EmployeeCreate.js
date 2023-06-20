@@ -100,7 +100,7 @@ const EmployeeCreate = () => {
               });
               setTechnology([]);
               setActivechange(false);
-              // navigate('/');
+              navigate('/');
             }, 1000);
 
             setTimeout(() => {
