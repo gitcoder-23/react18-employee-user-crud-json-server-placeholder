@@ -437,7 +437,7 @@ export default EmployeeCreate;
 const cssOps = `
 
 .multiselect_field div#react-select-3-placeholder {
-  text-align: left
+  text-align: left !important;
 }
 
 `;

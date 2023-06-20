@@ -9,7 +9,7 @@ import Menu from '../components/Menu';
 
 const EmployeeList = () => {
   const navigate = useNavigate();
-  const [employeeData, setEmployeeData] = useState([] || null);
+  const [employeeData, setEmployeeData] = useState([] || undefined);
   const [isLoading, setIsLoading] = useState(true);
   const [mesasge, setMessage] = useState('');
 
