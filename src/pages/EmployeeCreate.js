@@ -368,7 +368,7 @@ const EmployeeCreate = () => {
                           className="form-check-label"
                           style={{ float: 'left', marginBottom: '4px' }}
                         >
-                          {active == false ? 'Inactive' : 'Active'} Employee
+                          {active === false ? 'Inactive' : 'Active'} Employee
                         </label>
                       </div>
                     </div>
