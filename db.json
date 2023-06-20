@@ -155,6 +155,44 @@
       "performance": "better",
       "active": true,
       "id": "45742f54-d03e-4fdc-a70c-8ebb8a1cf5df"
+    },
+    {
+      "employeename": "Krishna",
+      "email": "test@test.com",
+      "phone": "7894561258",
+      "technology": [
+        {
+          "value": "angular",
+          "label": "Angular"
+        }
+      ],
+      "gender": "female",
+      "emp_detail": "Test Hey",
+      "performance": "best",
+      "employeeFullDetail": "<p class=\"ql-align-justify\"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan fringilla tempus. In vestibulum, quam ut maximus venenatis, risus metus rhoncus libero, sit amet tincidunt neque erat sed magna. Sed blandit eros sem, quis tempor risus </strong><a href=\"https://fr.lipsum.com/feed/html\" rel=\"noopener noreferrer\" target=\"_blank\"><strong><u>malesuada</u></strong></a><strong> et. Phasellus in volutpat nibh. Mauris odio nulla, porta eget turpis nec, semper euismod ex. Nullam ut nunc nec mi pretium tincidunt. Pellentesque ut libero sit amet lorem scelerisque venenatis ac eu neque. Donec vulputate risus at tincidunt tempus. Donec vitae neque elementum, rhoncus nulla id, vehicula erat. Curabitur non tortor gravida, sagittis elit at, pretium arcu. Aliquam scelerisque vulputate molestie. Pellentesque in nisl at urna sodales aliquam ut consectetur lectus. Nam faucibus egestas enim at sagittis.</strong></p><p class=\"ql-align-justify\"><br></p>",
+      "active": true,
+      "id": "082855d8-5bfa-4fdd-aab9-b238872c931d"
+    },
+    {
+      "employeename": "Khan Baba",
+      "email": "prabhatece21@gmail.com",
+      "phone": "9894561258",
+      "technology": [
+        {
+          "value": "node",
+          "label": "Node"
+        },
+        {
+          "value": "react",
+          "label": "React"
+        }
+      ],
+      "gender": "others",
+      "emp_detail": "Praesent ut risus sit amet lectus porttitor convallis in in lectus. Duis feugiat, diam ut iaculis maximus, ligula justo dignissim urna, in maximus arcu nulla et lacus. Duis mi libero, finibus a elit at, porttitor feugiat enim. Duis at dictum elit. Etiam pellentesque vitae leo ac congue. Phasellus semper justo sed lacinia vehicula. Proin erat massa, auctor imperdiet iaculis in, sodales eget nisl. Suspendisse sit amet purus tempor, faucibus ipsum ut, dignissim leo. Aliquam congue mattis urna vel sollicitudin. Mauris eu tortor facilisis, pretium eros vel, consectetur sem.",
+      "performance": "better",
+      "employeeFullDetail": "<p>\"</p><p>Fast</p><p>\"</p>",
+      "active": true,
+      "id": "07ddcdcb-115c-454b-828b-6ff20252ef35"
     }
   ]
 }

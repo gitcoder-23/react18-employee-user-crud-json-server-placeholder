@@ -74,6 +74,7 @@ const EmployeeCreate = () => {
         gender: employeeForm.gender,
         emp_detail: employeeForm.emp_detail,
         performance: performance,
+        employeeFullDetail: JSON.stringify(employeeFullDetail),
         active: active,
       };
       // console.log('formData->', formData);

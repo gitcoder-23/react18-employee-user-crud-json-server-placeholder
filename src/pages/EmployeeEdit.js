@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
+import ReactQuill from 'react-quill';
 
 const EmployeeEdit = () => {
   const animatedComponents = makeAnimated();
@@ -23,6 +24,9 @@ const EmployeeEdit = () => {
     emp_detail: state?.singleUser.emp_detail || '',
   });
   const [active, setActivechange] = useState(state?.singleUser.active || false);
+  const [employeeEditDetail, setEmployeeEditDetail] = useState(
+    state?.singleUser.employeeFullDetail || ''
+  );
 
   const [editPerformance, setEditPerformance] = useState(
     state?.singleUser.performance || 'good'
@@ -103,6 +107,7 @@ const EmployeeEdit = () => {
         gender: employeeEditForm.gender,
         emp_detail: employeeEditForm.emp_detail,
         performance: editPerformance,
+        employeeFullDetail: employeeEditDetail,
         active: active,
       };
       // console.log('formData->', formData);
@@ -354,6 +359,29 @@ const EmployeeEdit = () => {
                       </label>
                     </div>
                   </div>
+
+                  <div className="col-lg-12 mb-2">
+                    <div className="form-group">
+                      <div className="row">
+                        <label
+                          style={{
+                            float: 'left',
+                            marginBottom: '4px',
+                            textAlign: 'left',
+                          }}
+                        >
+                          Employee full details
+                        </label>{' '}
+                      </div>
+
+                      <ReactQuill
+                        theme="snow"
+                        value={employeeEditDetail}
+                        onChange={setEmployeeEditDetail}
+                      />
+                    </div>
+                  </div>
+
                   <div className="col-lg-12">
                     <div className="form-group">
                       <button className="btn btn-success" type="submit">
