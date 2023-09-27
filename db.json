@@ -174,25 +174,21 @@
       "id": "082855d8-5bfa-4fdd-aab9-b238872c931d"
     },
     {
-      "employeename": "Khan Baba",
-      "email": "prabhatece21@gmail.com",
-      "phone": "9894561258",
+      "id": "8f8f175f-ec97-4f02-bee1-8a37eab4d9e1",
+      "employeename": "Krishna",
+      "email": "test@test.com",
+      "phone": "7894561258",
       "technology": [
         {
-          "value": "node",
-          "label": "Node"
-        },
-        {
-          "value": "react",
-          "label": "React"
+          "value": "angular",
+          "label": "Angular"
         }
       ],
-      "gender": "others",
-      "emp_detail": "Praesent ut risus sit amet lectus porttitor convallis in in lectus. Duis feugiat, diam ut iaculis maximus, ligula justo dignissim urna, in maximus arcu nulla et lacus. Duis mi libero, finibus a elit at, porttitor feugiat enim. Duis at dictum elit. Etiam pellentesque vitae leo ac congue. Phasellus semper justo sed lacinia vehicula. Proin erat massa, auctor imperdiet iaculis in, sodales eget nisl. Suspendisse sit amet purus tempor, faucibus ipsum ut, dignissim leo. Aliquam congue mattis urna vel sollicitudin. Mauris eu tortor facilisis, pretium eros vel, consectetur sem.",
+      "gender": "male",
+      "emp_detail": "Hello test",
       "performance": "better",
-      "employeeFullDetail": "<p>\"</p><p>Fast</p><p>\"</p>",
-      "active": true,
-      "id": "07ddcdcb-115c-454b-828b-6ff20252ef35"
+      "employeeFullDetail": "\"<p>Good employee</p>\"",
+      "active": true
     }
   ]
 }
