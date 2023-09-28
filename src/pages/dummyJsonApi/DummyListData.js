@@ -63,7 +63,7 @@ const DummyListData = ({
               type="button"
               className="btn btn-primary"
             >
-              Data Store Arrey
+              Data Store Array
             </button>
           </td>
         </tr>
