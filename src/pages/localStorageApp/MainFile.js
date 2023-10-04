@@ -24,7 +24,7 @@ const MainFile = () => {
     }
 
     return () => {};
-  }, [allTextData, allLocalStorageData]);
+  }, [allTextData]);
 
   console.log('allLocalStorageData=>', allLocalStorageData);
 
