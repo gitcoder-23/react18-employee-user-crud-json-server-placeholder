@@ -9,6 +9,7 @@ import UserList from './pages/crudJsonPlace/userlist/UserList';
 import UserDetail from './pages/crudJsonPlace/userlist/UserDetail';
 import DummyUserList from './pages/dummyJsonApi/DummyUserList';
 import Menu from './components/Menu';
+import MainFile from './pages/localStorageApp/MainFile';
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
         {/* Using dummy-Json-Api */}
         <Route exact path="/dummyuserlist" element={<DummyUserList />} />
         {/* <Route exact path="/viewdummyuser/:uId" element={<UserDetail />} /> */}
+        {/* Input Field LocalStorage */}
+        <Route exact path="/localstorageapp" element={<MainFile />} />
       </Routes>
     </div>
   );

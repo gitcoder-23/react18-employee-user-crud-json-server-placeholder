@@ -20,6 +20,12 @@ const Menu = () => {
             User List By Dummy-Json-api
           </Link>
         </button>
+        &nbsp;
+        <button className="bg bg-warning">
+          <Link to="/localstorageapp" style={{ color: '#000' }}>
+            Input Field LocalStorage
+          </Link>
+        </button>
       </div>
     </div>
   );
